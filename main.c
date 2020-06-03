@@ -18,11 +18,17 @@ int main()
     int a;
     int b;
 
-    a = ft_printf("Hello W%orld\n");
-    b = printf("Hello World\n");
+   // a = ft_printf("Hello W%orld\n");
+   // b = printf("Hello World\n");
 
-    printf("%d\n", a);
+  //  a =  printf("%c\n", 'b');
+    //    b =  ft_printf("%c\n", 'b');
+  // b = ft_printf("%c\n", 'a');
+    a =  printf("%s\n", "Hello");
+    b =  ft_printf("%s\n", "Hello");
+   
     printf("%d\n", b);
+    printf("%d\n", a);
 
     return (0);
 }

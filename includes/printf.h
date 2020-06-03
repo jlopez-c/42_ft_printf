@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef PRINTF_H
-# define PINTF_H
+# define PRINTF_H
 
 # include <stdarg.h>
 # include <unistd.h>
@@ -24,10 +24,12 @@ struct	s_printf
 {
     char        *str;
 	int			counter;
+    //int        result;
     va_list     args;
 	
 };
 
 int		ft_printf(const char *format, ...);
+int	    ft_conversion(t_printf *data);
 
 #endif
