@@ -6,7 +6,7 @@
 #    By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/01 22:00:15 by jlopez-c          #+#    #+#              #
-#    Updated: 2020/03/01 22:06:54 by jlopez-c         ###   ########.fr        #
+#    Updated: 2020/06/03 11:53:41 by jlopez-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(NAME): 	$(OBJ)
 			@echo Loading libft
 			@make -C $(LIB_DIR)
 			@cp $(LIB_DIR)$(LIBFT) ./$(NAME)
-			@echo FUUUUSION
+			@echo Working
 			@$(AR) $(NAME) $(OBJ)
 			@echo COMPLETE
 
