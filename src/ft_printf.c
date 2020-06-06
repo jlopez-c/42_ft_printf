@@ -6,50 +6,71 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/06/03 18:42:18 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/06/05 18:29:30 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+//#include "../includes/libft.h"
 #include "../includes/printf.h"
 
 void	ft_char(t_printf *data)
 {
-	char result = (char)va_arg(data->args, int);
-	data->counter += write(1, &result, 1);
+	char c;
+	
+	c = (char)va_arg(data->args, int);
+	data->counter += write(1, &c, 1);
 }
 
 void	ft_str(t_printf *data)
 {
 	int i;
-	char *result = va_arg(data->args, char *);
+	char *str;
+	
+	str = va_arg(data->args, char *);
 	i = 0;
-	while (result[i])
+	while (str[i])
 	{ 
-		data->counter += write(1, result + i, 1);
+		data->counter += write(1, str + i, 1);
 		i++;
 	}
 }
 
-int	ft_conversion(t_printf *data)
+void	ft_digit(t_printf *data)
+{
+	int 	d;
+
+	d = va_arg(data->args, int);
+	ft_putnbr_fd(d, 1);
+}
+
+void	ft_conversion(t_printf *data)
 {
 	data->str++;
 	
 	if (*data->str == 'c')
 		ft_char(data);
-
 	if (*data->str == 's')
 		ft_str(data);
+	//if (*data->str == 'p')
+
+	if (*data->str == 'd' || *data->str == 'i')
+		ft_digit(data);
+
+	//if (*data->str == 'u')
+
+	//if (*data->str == 'x' || *data->str == 'X')
+
+	//if (*data->str == '%')
 		
 }
 
 int		ft_printf(const char *format, ...)
 {
 	t_printf data;
+
 	va_start(data.args, format);
 	data.str = (char *)format;
 	data.counter = 0;
-	
 	while (*data.str)
 	{
 		if (*data.str == '%')

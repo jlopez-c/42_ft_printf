@@ -15,21 +15,21 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include <stdio.h>
 # include "libft.h"
 
-typedef	struct s_printf	t_printf;
 
-struct	s_printf
+typedef struct	s_printf
 {
     char        *str;
 	int			counter;
-    //int        result;
+    //char        *result;
     va_list     args;
 	
-};
+}               t_printf;
 
-int		ft_printf(const char *format, ...);
-int	    ft_conversion(t_printf *data);
+int	    	ft_printf(const char *format, ...);
+void	    ft_conversion(t_printf *data);
 
 #endif

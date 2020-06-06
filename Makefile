@@ -16,7 +16,7 @@ LIBFT =	libft.a
 LIB_DIR 	= 	libft/
 OBJ_DIR 	=	obj/
 SRC_DIR 	= 	src/
-SRC_FILES =		ft_printf.c 	\
+SRC_FILES =		ft_printf.c \
 				
 SRC = $(SRC_FILES:%=$(SRC_DIR)%)
 
