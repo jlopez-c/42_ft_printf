@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../includes/libft.h"
+#include "../includes/libft.h"
 #include "../includes/printf.h"
 
 int main()
@@ -24,8 +24,15 @@ int main()
   //b = ft_printf("%c\n", 'a');
   //a =  printf("%c\n", 'b');
     //    b =  ft_printf("%c\n", 'b');
-  a =  printf("printf: %u\n", -1);
-  b =  ft_printf("ft_printf: %i\n", 2);
+ //a =  printf("printf: %i\n", 22);
+ //b =  ft_printf("ft_print%i\n", 25);
+
+ a =  printf("printf: %u\n", -2147483647);
+ b =  ft_printf("ftprint %u\n", -4294967297);
+
+  //a =  printf("printf: %x\n", 73);
+  //b =  printf("printf: %x\n", 'b');
+  //b =  ft_printf("ft_printf: %x\n", a);
 
 //  a =  printf("printf: %s\n", "Hello");
 //  b =  ft_printf("ft_printf: %s\n", "Hello");

@@ -6,11 +6,11 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/06/05 18:29:30 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/06/09 07:43:42 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../includes/libft.h"
+#include "../includes/libft.h"
 #include "../includes/printf.h"
 
 void	ft_char(t_printf *data)
@@ -40,7 +40,15 @@ void	ft_digit(t_printf *data)
 	int 	d;
 
 	d = va_arg(data->args, int);
-	ft_putnbr_fd(d, 1);
+	ft_putnbr_fd(d, 1, data);
+}
+
+void	ft_unsigned(t_printf *data)
+{
+	int 	u;
+
+	u = va_arg(data->args, int);
+	ft_putnbr_unsig(u, 1, data);
 }
 
 void	ft_conversion(t_printf *data)
@@ -56,7 +64,8 @@ void	ft_conversion(t_printf *data)
 	if (*data->str == 'd' || *data->str == 'i')
 		ft_digit(data);
 
-	//if (*data->str == 'u')
+	if (*data->str == 'u')
+		ft_unsigned(data);
 
 	//if (*data->str == 'x' || *data->str == 'X')
 

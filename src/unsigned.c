@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   unsigned.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlopez-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/16 13:25:57 by jlopez-c          #+#    #+#             */
-/*   Updated: 2019/12/16 13:26:01 by jlopez-c         ###   ########.fr       */
+/*   Created: 2020/06/08 18:49:13 by jlopez-c          #+#    #+#             */
+/*   Updated: 2020/06/08 18:49:13 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 #include "../includes/printf.h"
 
-void	ft_putnbr_fd(int n, int fd, t_printf *data)
+void	ft_putnbr_unsig(int n, int fd, t_printf *data)
 {
 	int	x;
 	int count;
+    unsigned long int max;
+    unsigned long int suma;
+	int cnt;
 
 	x = n;
+    max = 4294967296;
 	if (n < 0)
 	{
-		data->counter += write(1, "-", 1);
-		if (n == -2147483648)
+       suma = max + x;
+		if (suma >= 10)
 		{
-			data->counter += write(1, "2", 1);
-			x = -147483648;
+			ft_putnbr_unsig((suma / 10), fd, data);
 		}
-		x = -1 * x;
+		cnt = ((suma % 10) + '0');
+		data->counter += write(1, &cnt, 1);
+		return;
 	}
 	if (x >= 10)
 	{
-		ft_putnbr_fd((x / 10), fd, data);
+		ft_putnbr_unsig((x / 10), fd, data);
 	}
 	count = ((x % 10) + '0');
 	data->counter += write(1, &count, 1);
 }
-
-
-
