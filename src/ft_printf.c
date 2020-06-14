@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/06/09 07:43:42 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/06/14 03:18:15 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,16 @@ void	ft_unsigned(t_printf *data)
 	ft_putnbr_unsig(u, 1, data);
 }
 
+//void	ft_ptr(t_printf *data)
+//
+//	void	*ptr;
+//
+//	ptr = va_arg(data->args, *void);
+//
+
 void	ft_conversion(t_printf *data)
 {
+	char percent = '%';
 	data->str++;
 	
 	if (*data->str == 'c')
@@ -60,7 +68,7 @@ void	ft_conversion(t_printf *data)
 	if (*data->str == 's')
 		ft_str(data);
 	//if (*data->str == 'p')
-
+		//ft_ptr(data);
 	if (*data->str == 'd' || *data->str == 'i')
 		ft_digit(data);
 
@@ -69,8 +77,11 @@ void	ft_conversion(t_printf *data)
 
 	//if (*data->str == 'x' || *data->str == 'X')
 
-	//if (*data->str == '%')
-		
+	if (*data->str == '%')
+	{
+		write(1, &percent, 1);
+		data->counter++;
+	}	
 }
 
 int		ft_printf(const char *format, ...)

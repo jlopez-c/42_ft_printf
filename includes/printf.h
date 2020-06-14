@@ -30,7 +30,7 @@ typedef struct	s_printf
 }               t_printf;
 
 int	    	ft_printf(const char *format, ...);
-void	    ft_conversion(t_printf *data);
+//void	    ft_conversion(t_printf *data);
 void    	ft_putnbr_unsig(int n, int fd, t_printf *data);
 
 #endif

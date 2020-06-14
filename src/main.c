@@ -21,19 +21,25 @@ int main()
    // a = ft_printf("Hello W%orld\n");
    // b = printf("Hello World\n");
   
-  //b = ft_printf("%c\n", 'a');
-  //a =  printf("%c\n", 'b');
+// // b = ft_printf("%c\n", 'a');
+ // a =  printf("%c\n", 'b');
     //    b =  ft_printf("%c\n", 'b');
  //a =  printf("printf: %i\n", 22);
  //b =  ft_printf("ft_print%i\n", 25);
 
- a =  printf("printf: %u\n", -2147483647);
- b =  ft_printf("ftprint %u\n", -4294967297);
+ //a =  printf("printf: %u\n", -25);
+ //b =  ft_printf("ftprint %u\n", -25);
 
   //a =  printf("printf: %x\n", 73);
   //b =  printf("printf: %x\n", 'b');
   //b =  ft_printf("ft_printf: %x\n", a);
+  printf("%p\n", &a);
+  printf("%p\n", &b);
 
+ 
+ a = printf("%% %% %%\n");
+ b = printf("%% %% %%\n");
+ //b = ft_printf("%%");
 //  a =  printf("printf: %s\n", "Hello");
 //  b =  ft_printf("ft_printf: %s\n", "Hello");
    
