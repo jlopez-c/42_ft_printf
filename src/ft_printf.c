@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/06/17 18:53:31 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/06/22 02:39:56 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_unsigned(t_printf *data)
 	ft_putnbr_unsig(u, 1, data);
 }
 
-/*
+
 void	ft_hexa(t_printf *data)
 {
 	int 	x;
@@ -59,7 +59,7 @@ void	ft_hexa(t_printf *data)
 	x = va_arg(data->args, int);
 	ft_puthexa(x, data);
 }
-*/
+
 
 //void	ft_ptr(t_printf *data)
 //
@@ -85,8 +85,8 @@ void	ft_conversion(t_printf *data)
 	if (*data->str == 'u')
 		ft_unsigned(data);
 
-	//if (*data->str == 'x' || *data->str == 'X')
-	//	ft_hexa(data);
+	if (*data->str == 'x' || *data->str == 'X')
+		ft_hexa(data);
 
 	if (*data->str == '%')
 	{
