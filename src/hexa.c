@@ -13,22 +13,25 @@
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
-void    ft_puthexa(int x, t_printf *data)
+void    ft_puthexa(unsigned int x, t_printf *data)
 {
-    //int i;
-    char hexa[17]={'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
+    char *hexa;
+    hexa = "0123456789abcdef";
 
-   // if (x < 10)
-    //    ft_putnbr_fd(x, 1, data);
-    //i = x;
-    while (x >= 16)
+    if (*data->str == 'X')
+        hexa = "0123456789ABCDEF";
+    if (x < 0)
+         data->counter += write(1, "ffffffff", 8);
+    else
     {
+        while (x >= 16)
+        {
 
-        ft_puthexa((x / 16), data);
-       //data->counter += write(1, &hexa[(x % 16) - 1], 1);
-       x = x % 16;
+            ft_puthexa((x / 16), data);
+        x = x % 16;
+        }
+        data->counter += write(1, &hexa[x], 1);
     }
-    data->counter += write(1, &hexa[x], 1);
 }
 
 

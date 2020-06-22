@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/06/22 02:39:56 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/06/22 09:01:59 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void	ft_unsigned(t_printf *data)
 
 void	ft_hexa(t_printf *data)
 {
-	int 	x;
+	unsigned int 	x;
 
-	x = va_arg(data->args, int);
+	x = va_arg(data->args, unsigned int);
 	ft_puthexa(x, data);
 }
 

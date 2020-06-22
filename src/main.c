@@ -37,8 +37,11 @@ int main()
   //printf("%p\n", &b);
 
   //printf("%x\n", 7000);
-b =  printf("printf:    %x\n", -2);
-a =  ft_printf("ft_printf: %x\n", -80);
+//b =  printf("printf:    %x\n", -2);
+b =    printf("printf:    %x\n", -342);
+    printf("printf:    %X\n", 326998);
+a =  ft_printf("ft_printf: %x\n", -342);
+ft_printf("ft_printf: %X\n", 326998);
   //printf("%x\n", 25);
 //  printf("%X\n", -634);
 
