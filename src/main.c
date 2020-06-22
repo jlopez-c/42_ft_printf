@@ -24,8 +24,8 @@ int main()
 // // b = ft_printf("%c\n", 'a');
  // a =  printf("%c\n", 'b');
     //    b =  ft_printf("%c\n", 'b');
- //a =  printf("printf: %i\n", 22);
- //b =  ft_printf("ft_print %i\n", 25);
+ a =  printf("printf:  %i\n", 89556);
+ b =  ft_printf("ft_print %i\n", 89556);
 
 // a =  printf("printf: %u\n", -25);
 // b =  ft_printf("ftprint %u\n", -25);
@@ -38,10 +38,10 @@ int main()
 
   //printf("%x\n", 7000);
 //b =  printf("printf:    %x\n", -2);
-b =    printf("printf:    %x\n", -342);
-    printf("printf:    %X\n", 326998);
-a =  ft_printf("ft_printf: %x\n", -342);
-ft_printf("ft_printf: %X\n", 326998);
+//b =    printf("printf:    %x\n", -342);
+//    printf("printf:    %X\n", 326998);
+//a =  ft_printf("ft_printf: %x\n", -342);
+//ft_printf("ft_printf: %X\n", 326998);
   //printf("%x\n", 25);
 //  printf("%X\n", -634);
 

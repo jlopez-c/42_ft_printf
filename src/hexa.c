@@ -33,6 +33,3 @@ void    ft_puthexa(unsigned int x, t_printf *data)
         data->counter += write(1, &hexa[x], 1);
     }
 }
-
-
-

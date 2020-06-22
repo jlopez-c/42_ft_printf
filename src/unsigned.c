@@ -16,10 +16,8 @@
 void	ft_putnbr_unsig(int n, int fd, t_printf *data)
 {
 	int	x;
-	int count;
     unsigned long int max;
     unsigned long int suma;
-	int cnt;
 
 	x = n;
     max = 4294967296;
@@ -30,14 +28,12 @@ void	ft_putnbr_unsig(int n, int fd, t_printf *data)
 		{
 			ft_putnbr_unsig((suma / 10), fd, data);
 		}
-		cnt = ((suma % 10) + '0');
-		data->counter += write(1, &cnt, 1);
+		suma = ((suma % 10) + '0');
+		data->counter += write(1, &suma, 1);
 		return;
 	}
 	if (x >= 10)
-	{
 		ft_putnbr_unsig((x / 10), fd, data);
-	}
-	count = ((x % 10) + '0');
-	data->counter += write(fd, &count, 1);
+	x = ((x % 10) + '0');
+	data->counter += write(fd, &x, 1);
 }
