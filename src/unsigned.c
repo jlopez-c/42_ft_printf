@@ -39,5 +39,5 @@ void	ft_putnbr_unsig(int n, int fd, t_printf *data)
 		ft_putnbr_unsig((x / 10), fd, data);
 	}
 	count = ((x % 10) + '0');
-	data->counter += write(1, &count, 1);
+	data->counter += write(fd, &count, 1);
 }

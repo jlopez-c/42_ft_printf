@@ -33,7 +33,7 @@ void	ft_putnbr_fd(int n, int fd, t_printf *data)
 	{
 		ft_putnbr_fd((x / 10), fd, data);
 	}
-	count = ((x % 10) + '0');
+	count = (x % 10) + 48;
 	data->counter += write(1, &count, 1);
 }
 
