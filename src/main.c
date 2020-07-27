@@ -24,8 +24,8 @@ int main()
 // // b = ft_printf("%c\n", 'a');
  // a =  printf("%c\n", 'b');
     //    b =  ft_printf("%c\n", 'b');
- a =  printf("printf:  %i\n", 89556);
- b =  ft_printf("ft_print %i\n", 89556);
+ //a =  printf("printf:  %i\n", 89556);
+ //b =  ft_printf("ft_print %i\n", 89556);
 
 // a =  printf("printf: %u\n", -25);
 // b =  ft_printf("ftprint %u\n", -25);
@@ -33,14 +33,14 @@ int main()
   //a =  printf("printf: %x\n", 73);
   //b =  printf("printf: %x\n", 'b');
   //b =  ft_printf("ft_printf: %x\n", a);
-  //printf("%p\n", &a);
-  //printf("%p\n", &b);
+  ft_printf("%p\n", &a);
+  printf("%p\n", &a);
 
   //printf("%x\n", 7000);
 //b =  printf("printf:    %x\n", -2);
 //b =    printf("printf:    %x\n", -342);
 //    printf("printf:    %X\n", 326998);
-//a =  ft_printf("ft_printf: %x\n", -342);
+//a =  ft_printf("ft_printf: %X\n", -342);
 //ft_printf("ft_printf: %X\n", 326998);
   //printf("%x\n", 25);
 //  printf("%X\n", -634);
@@ -53,7 +53,7 @@ int main()
 // b =  ft_printf("ft_printf: %s, %c, %d.\n", "Hello 42 Madrid 3F", 'a', 33);
    
     printf("\033[35mlength printf: %d\n", a);
-    printf("length ft_printf:  %d\n", b);
+    printf("length ft_printf:  %d\n", a);
 
     return (0);
 }

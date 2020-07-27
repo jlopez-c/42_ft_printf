@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/06/22 09:45:25 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/07/26 19:12:07 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,13 @@ void	ft_hexa(t_printf *data)
 	ft_puthexa(x, data);
 }
 
-//void	ft_ptr(t_printf *data)
-//
-//	void	*ptr;
-//
-//	ptr = va_arg(data->args, *void);
-//
+void	ft_ptr(t_printf *data)
+{
+	unsigned long int ptr;
+
+	ptr = va_arg(data->args, unsigned long int);
+	ft_putptr(ptr, data);
+}
 
 void	ft_conversion(t_printf *data)
 {
@@ -75,8 +76,8 @@ void	ft_conversion(t_printf *data)
 		ft_char(data);
 	if (*data->str == 's')
 		ft_str(data);
-	//if (*data->str == 'p')
-		//ft_ptr(data);
+	if (*data->str == 'p')
+		ft_ptr(data);
 	if (*data->str == 'd' || *data->str == 'i')
 		ft_digit(data);
 	if (*data->str == 'u')

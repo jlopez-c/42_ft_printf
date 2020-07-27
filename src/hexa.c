@@ -21,14 +21,13 @@ void    ft_puthexa(unsigned int x, t_printf *data)
     if (*data->str == 'X')
         hexa = "0123456789ABCDEF";
     if (x < 0)
-         data->counter += write(1, "ffffffff", 8);
+        data->counter += write(1, "ffffffff", 8);
     else
     {
         while (x >= 16)
         {
-
             ft_puthexa((x / 16), data);
-        x = x % 16;
+            x = x % 16;
         }
         data->counter += write(1, &hexa[x], 1);
     }

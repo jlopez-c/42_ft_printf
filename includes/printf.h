@@ -34,5 +34,6 @@ int	    	ft_printf(const char *format, ...);
 void    	ft_putnbr_unsig(int n, int fd, t_printf *data);
 void	    ft_putnbr_fd(int n, int fd, t_printf *data);
 void        ft_puthexa(unsigned int x, t_printf *data);
+void        ft_putptr(unsigned long int ptr, t_printf *data);
 
 #endif
