@@ -40,6 +40,6 @@ void    ft_putptr(unsigned long int ptr, t_printf *data)
 
     ptr_hex_val = ptr;
     //data->counter += write(1, "0x", 2);
-    write(1, "0x", 2);
+    data->counter += write(1, "0x", 2);
     ft_transformer(ptr_hex_val, data);
 }

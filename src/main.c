@@ -17,6 +17,7 @@ int main()
 {
     int a;
     int b;
+    int c;
 
    // a = ft_printf("Hello W%orld\n");
    // b = printf("Hello World\n");
@@ -33,8 +34,8 @@ int main()
   //a =  printf("printf: %x\n", 73);
   //b =  printf("printf: %x\n", 'b');
   //b =  ft_printf("ft_printf: %x\n", a);
-  ft_printf("%p\n", &a);
-  printf("%p\n", &a);
+//b =  ft_printf("%p\n", &a);
+//c =  printf("%p\n", &a);
 
   //printf("%x\n", 7000);
 //b =  printf("printf:    %x\n", -2);
@@ -51,9 +52,14 @@ int main()
  //b = ft_printf("%%");
  // a =  printf("printf: %s %d\n",  "Hello 42 Madrid 3f", 5);
 // b =  ft_printf("ft_printf: %s, %c, %d.\n", "Hello 42 Madrid 3F", 'a', 33);
-   
+
+  //printf("%06d\n", 6); 
+  //printf("%*6d\n", 6); 
+ a = printf("%.15d\n", 6); 
+  //printf("%.6d\n", 6); 
+
     printf("\033[35mlength printf: %d\n", a);
-    printf("length ft_printf:  %d\n", a);
+//    printf("length ft_printf:  %d\n", b);
 
     return (0);
 }
