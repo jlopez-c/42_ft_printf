@@ -37,3 +37,11 @@ void	ft_putnbr_unsig(int n, int fd, t_printf *data)
 	x = ((x % 10) + '0');
 	data->counter += write(fd, &x, 1);
 }
+
+void	ft_unsigned(t_printf *data)
+{
+	int 	u;
+
+	u = va_arg(data->args, int);
+	ft_putnbr_unsig(u, 1, data);
+}

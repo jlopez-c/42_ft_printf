@@ -43,3 +43,11 @@ void    ft_putptr(unsigned long int ptr, t_printf *data)
     data->counter += write(1, "0x", 2);
     ft_transformer(ptr_hex_val, data);
 }
+
+void	ft_ptr(t_printf *data)
+{
+	unsigned long int ptr;
+
+	ptr = va_arg(data->args, unsigned long int);
+	ft_putptr(ptr, data);
+}

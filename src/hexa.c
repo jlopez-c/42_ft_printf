@@ -32,3 +32,11 @@ void    ft_puthexa(unsigned int x, t_printf *data)
         data->counter += write(1, &hexa[x], 1);
     }
 }
+
+void	ft_hexa(t_printf *data)
+{
+	unsigned int 	x;
+
+	x = va_arg(data->args, unsigned int);
+	ft_puthexa(x, data);
+}

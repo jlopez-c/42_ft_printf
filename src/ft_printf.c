@@ -13,65 +13,38 @@
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
-void	ft_char(t_printf *data)
+/*
+void	ft_width(t_printf *data)
 {
-	char c;
-	
-	c = (char)va_arg(data->args, int);
-	data->counter += write(1, &c, 1);
-}
-
-void	ft_str(t_printf *data)
-{
-	int i;
-	char *str;
-	
-	str = va_arg(data->args, char *);
-	i = 0;
-	while (str[i])
-	{ 
-		data->counter += write(1, str + i, 1);
-		i++;
+	int width;
+	width = *data->str;
+	while (width > 0)
+	{
+		data->counter+= write(1, "0", 1);
+		width--;
 	}
+	//ft_conversion(&data);
 }
-
-void	ft_digit(t_printf *data)
-{
-	int 	d;
-
-	d = va_arg(data->args, int);
-	ft_putnbr_fd(d, 1, data);
-}
-
-void	ft_unsigned(t_printf *data)
-{
-	int 	u;
-
-	u = va_arg(data->args, int);
-	ft_putnbr_unsig(u, 1, data);
-}
-
-void	ft_hexa(t_printf *data)
-{
-	unsigned int 	x;
-
-	x = va_arg(data->args, unsigned int);
-	ft_puthexa(x, data);
-}
-
-void	ft_ptr(t_printf *data)
-{
-	unsigned long int ptr;
-
-	ptr = va_arg(data->args, unsigned long int);
-	ft_putptr(ptr, data);
-}
+*/
 
 void	ft_conversion(t_printf *data)
 {
 	char percent = '%';
+	//int width;
 	data->str++;
-	
+	//width = *data->str - 48;
+
+	/* intento de manejar el width
+	if (*data->str >= 1)
+	{
+		while (width > 0)
+		{
+			data->counter+= write(1, " ", 1);
+			width--;
+		}
+	}
+	data->str++;
+	*/
 	if (*data->str == 'c')
 		ft_char(data);
 	if (*data->str == 's')
