@@ -51,8 +51,8 @@ int main()
  //b = ft_printf("%% %% %%\n");
  //b = ft_printf("%%");
  // a =  printf("printf: %s %d\n",  "Hello 42 Madrid 3f", 5);
-a =  printf("ft_printf: %s, %X, %x, %c, %d, %u, %p.\n", "Hello 42 Madrid", 29, 29, 'a', 33, -42, &c);
-b =  ft_printf("ft_printf: %s, %X, %x, %c, %d, %u, %p.\n", "Hello 42 Madrid", 29, 29, 'a', 33, -42, &c);
+a =  printf("ft_printf: %%%%, %s, %X, %x, %c, %d, %u, %p.\n", "Hello 42 Madrid", 29, 29, 'a', 33, -42, &c);
+b =  ft_printf("ft_printf: %%%%, %s, %X, %x, %c, %d, %u, %p.\n", "Hello 42 Madrid", 29, 29, 'a', 33, -42, &c);
 
 
  //a = printf("%05d\n", 42);

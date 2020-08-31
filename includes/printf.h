@@ -30,6 +30,7 @@ typedef struct	s_printf
 
 int	    	ft_printf(const char *format, ...);
 //void	    ft_conversion(t_printf *data);
+void        ft_percent(t_printf *data);
 void	    ft_char(t_printf *data);
 void	    ft_str(t_printf *data);
 void	    ft_digit(t_printf *data);

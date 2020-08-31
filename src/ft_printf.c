@@ -29,7 +29,6 @@ void	ft_width(t_printf *data)
 
 void	ft_conversion(t_printf *data)
 {
-	char percent = '%';
 	//int width;
 	data->str++;
 	//width = *data->str - 48;
@@ -58,10 +57,7 @@ void	ft_conversion(t_printf *data)
 	if (*data->str == 'x' || *data->str == 'X')
 		ft_hexa(data);
 	if (*data->str == '%')
-	{
-		write(1, &percent, 1);
-		data->counter++;
-	}	
+		ft_percent(data);
 }
 
 int		ft_printf(const char *format, ...)
