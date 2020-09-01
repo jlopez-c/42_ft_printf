@@ -23,23 +23,17 @@ typedef struct	s_printf
 {
     char        *str;
 	int			counter;
-    //char        *result;
     va_list     args;
 	
 }               t_printf;
 
 int	    	ft_printf(const char *format, ...);
-//void	    ft_conversion(t_printf *data);
 void        ft_percent(t_printf *data);
 void	    ft_char(t_printf *data);
 void	    ft_str(t_printf *data);
 void	    ft_digit(t_printf *data);
 void	    ft_unsigned(t_printf *data);
-//void    	ft_putnbr_unsig(int n, int fd, t_printf *data);
-//void	    ft_putnbr_fd(int n, int fd, t_printf *data);
 void	    ft_hexa(t_printf *data);
-//void        ft_puthexa(unsigned int x, t_printf *data);
 void        ft_ptr(t_printf *data);
-//void        ft_putptr(unsigned long int ptr, t_printf *data);
 
 #endif

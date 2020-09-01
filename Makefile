@@ -6,7 +6,7 @@
 #    By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/01 22:00:15 by jlopez-c          #+#    #+#              #
-#    Updated: 2020/06/03 11:53:41 by jlopez-c         ###   ########.fr        #
+#    Updated: 2020/09/01 17:55:28 by jlopez-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ LIBFT =	libft.a
 LIB_DIR 	= 	libft/
 OBJ_DIR 	=	obj/
 SRC_DIR 	= 	src/
-SRC_FILES =		ft_printf.c \
+SRC_FILES =		ft_printf.c char_str.c digit.c hexa.c percent.c ptr.c \
+				unsigned.c
 				
 SRC = $(SRC_FILES:%=$(SRC_DIR)%)
 

@@ -13,7 +13,7 @@
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
-void	ft_char(t_printf *data)
+void		ft_char(t_printf *data)
 {
 	char c;
 
@@ -21,10 +21,10 @@ void	ft_char(t_printf *data)
 	data->counter += write(1, &c, 1);
 }
 
-void	ft_str(t_printf *data)
+void		ft_str(t_printf *data)
 {
-	int	 i;
-	char *str;
+	int		i;
+	char	*str;
 
 	str = va_arg(data->args, char *);
 	i = 0;

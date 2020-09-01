@@ -54,6 +54,7 @@ int main()
 a =  printf("ft_printf: %%%%, %s, %X, %x, %c, %d, %u, %p.\n", "Hello 42 Madrid", 29, 29, 'a', 33, -42, &c);
 b =  ft_printf("ft_printf: %%%%, %s, %X, %x, %c, %d, %u, %p.\n", "Hello 42 Madrid", 29, 29, 'a', 33, -42, &c);
 
+ft_printf("%0d\n", 5);
 
  //a = printf("%05d\n", 42);
  //b = ft_printf("%02d\n", 42);
