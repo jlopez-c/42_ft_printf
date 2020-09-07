@@ -24,6 +24,10 @@ typedef struct	s_printf
     char        *str;
 	int			counter;
     int         width;
+    int         zero;
+    int         minus;
+    char        to_type;
+    int         ar_len; //longitud de mi argumento.
     va_list     args;
 	
 }               t_printf;

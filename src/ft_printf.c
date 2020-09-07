@@ -14,32 +14,77 @@
 #include "../includes/printf.h"
 
 /*
-void	ft_flags(t_printf *data)
+void	ft_final_str(t_printf *data)
 {
-	int width;
-	width = *data->str;
-	if (width == 1)
+	int length;
+
+	length = data->width - data->counter;
+	if (data->zero == 1)
 	{
-		while (width > 0)
+		while (length > 0)
 		{
-			write(1, "0", 1);
-			width--;
+			write(1, data->to_type, 1);
 		}
 	}
 }
-
-void	ft_width(t_printf *data)
-{
-	int width;
-	width = *data->str;
-	while (width > 0)
-	{
-		data->counter+= write(1, "0", 1);
-		width--;
-	}
-	//ft_conversion(&data);
-}
 */
+
+void	ft_init(t_printf *data)
+{
+	data->counter = 0;
+	data->width = 0;
+	data->zero = 0;
+	data->minus = 0;
+	data->to_type = ' ';
+	data->ar_len = 0;
+}
+
+void	ft_print_flags(t_printf *data)
+{
+	if (data->minus == 1 && data->zero == 0)
+	{
+		while (data->width > 0)
+		{
+			data->counter += write(1, &data->to_type, 1);
+			data->width--;
+		}
+		
+	}
+	else if (data->zero == 1 && data->minus == 0)
+	{
+		while (data->width > 0)
+		{
+			data->counter += write(1, &data->to_type, 1);
+			data->width--;
+		}
+		
+	}
+	
+	else if (data->zero == 1 && data->minus == 1)
+	{
+		write(1, "Warning, la abaricia rompe el saco.", 35);
+	}
+	
+}
+
+void	ft_flags(t_printf *data)
+{
+	if (*data->str == '-')
+	{
+		data->minus = 1;
+		data->to_type = ' ';
+		//x->flags2 = 1;
+		data->str++;
+	}
+	else if (*data->str == '0')
+	{
+		data->zero = 1;
+		data->to_type = '0';
+		//x->flags2 = -1;
+		data->str++;
+		//data->counter += write(1, "0", 1);
+	}
+}
 
 void	ft_conversion(t_printf *data)
 {
@@ -59,6 +104,7 @@ void	ft_conversion(t_printf *data)
 	if (*data->str == '%')
 		ft_percent(data);
 }
+
 void	ft_width(t_printf *data)
 {
 	if (*data->str == '*')
@@ -69,7 +115,7 @@ void	ft_width(t_printf *data)
 		{
 			data->width *= -1;
 			//x->flags2 = 1;
-			//x->flags = ' ';
+			data->to_type = ' ';
 		}
 		data->str++;
 	}
@@ -86,29 +132,24 @@ void	ft_width(t_printf *data)
 			data->width--;
 		}
 		*/
+		//data->str++;
 	}
-	//ft_conversion(data);
 }
 
 void	ft_options(t_printf *data)
 {
 	data->str++;
-	//if (*data->str  == '-' || *data->str  == '0')
-	//	ft_flags(x);
+	if (*data->str  == '-' || *data->str  == '0')
+		ft_flags(data);
 	if (*data->str  == '*' || ft_isdigit(*data->str))
 		ft_width(data);
 	//if (*data->str  == '.')
 	//	ft_precision(x);
+	ft_print_flags(data);
 	if (*data->str  != '\0')
+		//ft_print_flags(data);
 		ft_conversion(data);
-	//if (*data->str  == '%')
-	//{
-	//	ft_print_finalstring("%", x);
-	//	return ;
-	//}
 }
-
-
 
 int		ft_printf(const char *format, ...)
 {
@@ -116,8 +157,7 @@ int		ft_printf(const char *format, ...)
 
 	va_start(data.args, format);
 	data.str = (char *)format;
-	data.counter = 0;
-	data.width = 0;
+	ft_init(&data);
 	while (*data.str)
 	{
 		if (*data.str == '%')

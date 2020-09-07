@@ -13,10 +13,53 @@
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
+
+void	ft_putnbr(int n, int fd, t_printf *data)
+{
+	int	x;
+	int count;
+
+	x = n;
+	int length;
+	if (data->zero == 1)
+	{
+		length = data->width - data->ar_len;
+		if (data->zero == 1)
+		{
+			while (length > 0)
+			{
+				write(1, "0", 1);
+				length--;
+			}
+		}
+	}
+	else
+	{
+		if (n < 0)
+		{
+			data->counter += write(1, "-", 1);
+			if (n == -2147483648)
+			{
+				data->counter += write(1, "2", 1);
+				x = -147483648;
+			}
+			x = -1 * x;
+		}
+		if (x >= 10)
+		{
+			ft_putnbr_fd((x / 10), fd, data);
+		}
+		count = (x % 10) + 48;
+		data->counter += write(1, &count, 1);
+	}
+}
+
 void	ft_digit(t_printf *data)
 {
 	int d;
 
 	d = va_arg(data->args, int);
-	ft_putnbr_fd(d, 1, data);
+	data->ar_len = ft_strlen((ft_itoa(d)));
+	//printf("%d\n", data->ar_len);
+	ft_putnbr(d, 1, data);
 }
