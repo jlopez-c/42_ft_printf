@@ -15,9 +15,9 @@
 
 int main()
 {
-    int a;
-    int b;
-    int c;
+    int a = 0;
+    int b = 0;
+   //  int c = 0;
 
    // a = ft_printf("Hello W%orld\n");
    // b = printf("Hello World\n");
@@ -51,23 +51,26 @@ int main()
  //b = ft_printf("%% %% %%\n");
  //b = ft_printf("%%");
  // a =  printf("printf: %s %d\n",  "Hello 42 Madrid 3f", 5);
-a =  printf("   printf: %%%%, %s, %X, %x, %c, %5d, %u, %p.\n", "Hello 42 Madrid", 29, 29, 'a', 33, -42, &c);
-b =  ft_printf("ft_printf: %%%%, %s, %X, %x, %c, %5d, %u, %p.\n", "Hello 42 Madrid", 29, 29, 'a', 33, -42, &c);
+//a =  printf("   printf: %%%%, %s, %X, %x, %c, %5d, %u, %p.\n", "Hello 42 Madrid", 29, 29, 'a', 33, -42, &c);
+//b =  ft_printf("ft_printf: %%%%, %s, %X, %x, %c, %5d, %u, %p.\n", "Hello 42 Madrid", 29, 29, 'a', 33, -42, &c);
 
 //printf("%*d\n", 3, 56);
 //ft_printf("%*d\n", 3, 56);
 
-printf("%*i\n", 5, 56);
-ft_printf("%*i\n", 5, 56);
+//printf("%*i\n", 5, 56);
+//ft_printf("%*i\n", 5, 56);
 
-printf("%10s\n", "Hey");
-ft_printf("%10s\n", "Hey");
+//printf("%10s\n", "Hey");
+//ft_printf("%10s\n", "Hey");
 
  //a = printf("%05d\n", 42);
  //b = ft_printf("%02d\n", 42);
 
-  printf("%06d\n", 65); 
-  ft_printf("%06d\n", 65);
+ // a = printf("%010d\n", 6589); 
+ // b = ft_printf("%010d\n", 6589);
+
+ a = printf("%*d\n", 10, 6589); 
+  b = ft_printf("%*d\n", 10, 6589);
 
   //printf("%-8d\n", 6); 
   //ft_printf("%0-8d\n", 6);
