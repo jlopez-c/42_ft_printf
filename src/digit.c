@@ -46,8 +46,7 @@ void	ft_putnbr(int n, int fd, t_printf *data)
 			data->zero = 0;
 			data->width = 0;
 		ft_putnbr(x, 1, data);
-	}
-		
+	}	
 	else
 	{
 		if (n < 0)

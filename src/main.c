@@ -60,6 +60,11 @@ int main()
 //printf("%*i\n", 5, 56);
 //ft_printf("%*i\n", 5, 56);
 
+
+
+
+//-------------------COMIENZAAN LOS FLAGSSSS-----------------------//
+
 //printf("%10s\n", "Hey");
 //ft_printf("%10s\n", "Hey");
 
@@ -69,8 +74,14 @@ int main()
  // a = printf("%010d\n", 6589); 
  // b = ft_printf("%010d\n", 6589);
 
- a = printf("%*d\n", 10, 6589); 
-  b = ft_printf("%*d\n", 10, 6589);
+//a = printf("%*d, %045d\n", 10, 6589, 25); 
+//b = ft_printf("%*d, %045d\n", 10, 6589, 25);
+
+a = printf("%42s\n", "Positividad al poder.");
+b = ft_printf("%42s\n", "Positividad al poder.");
+
+a = printf("%42c\n", '1');
+b = ft_printf("%42c\n", '1');
 
   //printf("%-8d\n", 6); 
   //ft_printf("%0-8d\n", 6);
