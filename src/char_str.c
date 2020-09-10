@@ -18,7 +18,18 @@ void		ft_put_char(t_printf *data, char c)
 	int		length;
 
 	length = data->width - 1;
-	if (data->width > 0)
+
+	if (data->width > 0 && data->minus == 1)
+	{
+		data->counter += write(1, &c, 1);
+		while(length > 0)
+		{
+			data->counter += write(1, " ", 1);
+			length--;
+		}
+		data->width = 0;
+	}
+	else if (data->width > 0 && data->minus == 0)
 	{
 		while(length > 0)
 		{
@@ -46,8 +57,23 @@ void		ft_put_str(t_printf *data, char *str)
 	int		length;
 
 	i = 0;
+	if (data->width > 0 && data->minus == 1)
+	{
+		while (str[i])
+		{
+			data->counter += write(1, str + i, 1);
+			i++;
+		}
+		length = data->width - data->ar_len;
+			while (length > 0)
+			{
+				data->counter += write(1, " ", 1);
+				length--;
+			}
+			data->width = 0;
+	}
 	////Cuando tiene width
-	if (data->width > 0) 
+	else if (data->width > 0 && data->minus == 0) 
 	{
 		length = data->width - data->ar_len;
 			while (length > 0)
