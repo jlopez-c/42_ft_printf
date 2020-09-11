@@ -20,25 +20,9 @@ void		ft_put_char(t_printf *data, char c)
 	length = data->width - 1;
 
 	if (data->width > 0 && data->minus == 1)
-	{
-		data->counter += write(1, &c, 1);
-		while(length > 0)
-		{
-			data->counter += write(1, " ", 1);
-			length--;
-		}
-		data->width = 0;
-	}
+		ft_print_minus_c(c, length, data);
 	else if (data->width > 0 && data->minus == 0)
-	{
-		while(length > 0)
-		{
-			data->counter += write(1, " ", 1);
-			length--;
-		}
-		data->width = 0;
-		ft_put_char(data, c);
-	}
+		ft_print_width_c(c, length, data);
 	else
 		data->counter += write(1, &c, 1);
 }
@@ -57,33 +41,13 @@ void		ft_put_str(t_printf *data, char *str)
 	int		length;
 
 	i = 0;
+	length = data->width - data->ar_len;
+	//Cuando hay un minus
 	if (data->width > 0 && data->minus == 1)
-	{
-		while (str[i])
-		{
-			data->counter += write(1, str + i, 1);
-			i++;
-		}
-		length = data->width - data->ar_len;
-			while (length > 0)
-			{
-				data->counter += write(1, " ", 1);
-				length--;
-			}
-			data->width = 0;
-	}
+		ft_print_minus_str(str, i, length, data);
 	////Cuando tiene width
 	else if (data->width > 0 && data->minus == 0) 
-	{
-		length = data->width - data->ar_len;
-			while (length > 0)
-			{
-				data->counter += write(1, " ", 1);
-				length--;
-			}
-			data->width = 0;
-		ft_put_str(data, str);
-	}
+		ft_print_width_str(str, i, length, data);
 	////Cuando todo va normal
 	else
 	{

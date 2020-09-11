@@ -13,22 +13,6 @@
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
-/*
-**void	ft_final_str(t_printf *data)
-**{
-**	int length;
-**
-**	length = data->width - data->counter;
-**	if (data->zero == 1)
-**	{
-**		while (length > 0)
-**		{
-**			write(1, data->to_type, 1);
-**		}
-**	}
-**}
-*/
-
 void	ft_init(t_printf *data)
 {
     data->counter = 0;
@@ -38,35 +22,7 @@ void	ft_init(t_printf *data)
     data->to_type = ' ';
     data->ar_len = 0;
 }
-/*
-void	ft_print_flags(t_printf *data)
-{
-    if (data->minus == 1 && data->zero == 0)
-    {
-        while (data->width > 0)
-        {
-            data->counter += write(1, &data->to_type, 1);
-            data->width--;
-        }
-        
-    }
-    else if (data->zero == 1 && data->minus == 0)
-    {
-        while (data->width > 0)
-        {
-            data->counter += write(1, &data->to_type, 1);
-            data->width--;
-        }
-        
-    }
-    
-    else if (data->zero == 1 && data->minus == 1)
-    {
-        write(1, "Warning, la abaricia rompe el saco.", 35);
-    }
-    
-}
-*/
+
 void	ft_flags(t_printf *data)
 {
     if (*data->str == '-')

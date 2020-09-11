@@ -43,44 +43,16 @@ void	ft_putnbr(int n, t_printf *data)
 	int length;
 
 	x = n;
+	length = data->width - data->ar_len;
 	//Este parrafo me imprime los zeros
-	if (data->zero == 1)
-	{
-		length = data->width - data->ar_len;
-			while (length > 0)
-			{
-				data->counter += write(1, "0", 1);
-				length--;
-			}
-			data->zero = 0;
-			data->width = 0;
-		ft_putnbr_alone(x, data);
-	}
+	if (data->zero == 1 && data->minus == 0)
+		ft_print_zeros(x, length, data);
 	//Este parrafor me imprime los espacios
 	else if (data->zero == 0 && data->width > 0 && data->minus == 0)
-	{
-		length = data->width - data->ar_len;
-			while (length > 0)
-			{
-				data->counter += write(1, " ", 1);
-				length--;
-			}
-			data->zero = 0;
-			data->width = 0;
-		ft_putnbr_alone(x, data);
-	}
-	else if (data->minus == 1 && data->width > 0)
-	{
-		length = data->width - data->ar_len;
-		ft_putnbr_alone(x, data);
-			while (length > 0)
-			{
-				data->counter += write(1, " ", 1);
-				length--;
-			}
-			data->zero = 0;
-			data->width = 0;
-	}	
+		ft_print_width(x, length, data);
+	//Este parrafo maneja los menos
+	else if (data->minus == 1 && data->width > 0 && (data->zero == 0 || data->zero == 1))
+		ft_print_minus(x, length, data);
 	else
 		ft_putnbr_alone(x, data);
 }

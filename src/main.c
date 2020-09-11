@@ -17,7 +17,7 @@ int main()
 {
     int a = 0;
     int b = 0;
-   //  int c = 0;
+    long long int c;
 
    // a = ft_printf("Hello W%orld\n");
    // b = printf("Hello World\n");
@@ -32,10 +32,10 @@ int main()
 // b =  ft_printf("ftprint %u\n", -25);
 
   //a =  printf("printf: %x\n", 73);
-  //b =  printf("printf: %x\n", 'b');
-  //b =  ft_printf("ft_printf: %x\n", a);
-//b =  ft_printf("%p\n", &a);
-//c =  printf("%p\n", &a);
+//  b =  printf("   printf: %-020x\n", 158);
+//  a =  ft_printf("ft_printf: %20x\n", 158);
+//b =  ft_printf("%30p\n", &c);
+//a =  printf("%30p\n", &c);
 
   //printf("%x\n", 7000);
 //b =  printf("printf:    %x\n", -2);
@@ -68,20 +68,22 @@ int main()
 //printf("%10s\n", "Hey");
 //ft_printf("%10s\n", "Hey");
 
- a = printf("%-8d\n", 42);
- b = ft_printf("%-8d\n", 42);
+ //a = printf("%-8d\n", 42);
+ //b = ft_printf("%-8d\n", 42);
 
  // a = printf("%010d\n", 6589); 
  // b = ft_printf("%010d\n", 6589);
 
-//a = printf("%*d, %045d\n", 10, 6589, 25); 
-//b = ft_printf("%*d, %045d\n", 10, 6589, 25);
+//a = printf("%*d, %0-45d\n", 10, 6589, 25); 
+//b = ft_printf("%*d, %0-45d\n", 10, 6589, 25);
 
-//a = printf("%-42s\n", "Positividad al poder.");
-//b = ft_printf("%-42s\n", "Positividad al poder.");
+//a = printf("%-45d\n", 25); 
+//b = ft_printf("%-45d\n", 25);
+a = printf("%42s\n", "Positividad al poder.");
+b = ft_printf("%42s\n", "Positividad al poder.");
 
-//a = printf("%-42c\n", '1');
-//b = ft_printf("%-42c\n", '1');
+//a = printf("%-42c\n", 'i');
+//b = ft_printf("%-42c\n", 'i');
 
   //printf("%-8d\n", 6); 
   //ft_printf("%0-8d\n", 6);
