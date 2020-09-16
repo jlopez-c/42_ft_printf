@@ -28,6 +28,8 @@ typedef struct	s_printf
     int         minus;
     char        to_type;
     int         ar_len;
+    int         hex_len;
+    int         unsigned_len;
     va_list     args;
 	
 }               t_printf;
@@ -41,6 +43,8 @@ void	    ft_digit(t_printf *data);
 void	    ft_putnbr_alone(int n, t_printf *data);
 void	    ft_unsigned(t_printf *data);
 void	    ft_hexa(t_printf *data);
+void	    ft_puthexa(unsigned int x, t_printf *data);
+void	    ft_puthexa_alone(unsigned int x, t_printf *data);
 void        ft_ptr(t_printf *data);
 
 /* Flags Digit*/
@@ -58,5 +62,10 @@ void	    ft_print_width_str(char *str, int i, int length, t_printf *data);
 
 /* Flags Ptr*/
 void        ft_print_width_ptr(int length, t_printf *data);
+
+/* Flags Hexa*/
+void	    ft_print_width_hex(unsigned int x, int length, t_printf *data);
+void	    ft_print_zeros_hex(unsigned int x, int length, t_printf *data);
+void	    ft_print_minus_hex(unsigned int x, int length, t_printf *data);
 
 #endif

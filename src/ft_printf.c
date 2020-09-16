@@ -21,6 +21,8 @@ void	ft_init(t_printf *data)
     data->minus = 0;
     data->to_type = ' ';
     data->ar_len = 0;
+    data->hex_len = 0;
+    data->unsigned_len = 0;
 }
 
 void	ft_flags(t_printf *data)
