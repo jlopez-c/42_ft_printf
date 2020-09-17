@@ -28,11 +28,11 @@ int main()
  //a =  printf("printf:  %i\n", 89556);
  //b =  ft_printf("ft_print %i\n", 89556);
 
- a =  printf("printf: %u\n", 25);
- b =  ft_printf("ftprint %u\n", 25);
-
- a =  printf("printf: %20u\n", -99);
- b =  ft_printf("ftprint %u\n", -25);
+// a =  printf("printf: %u\n", 25);
+// b =  ft_printf("ftprint %u\n", 25);
+//
+// a =  printf("printf: %20u\n", -99);
+// b =  ft_printf("ftprint %u\n", -25);
 
   //a =  printf("printf: %x\n", 73);
 //  b =  printf("   printf: %-020x\n", 158);
@@ -77,8 +77,8 @@ int main()
  // a = printf("%010d\n", 6589); 
  // b = ft_printf("%010d\n", 6589);
 
-//a = printf("%*d, %-45d\n", -10, 6589, 25); 
-//b = ft_printf("%*d, %-45d\n", -10, 6589, 25);
+a = printf("%-*d, %45d\n", 10, 6589, 25); 
+b = ft_printf("%-*d, %45d\n", 10, 6589, 25);
 
 //a = printf("%-45d\n", 25); 
 //b = ft_printf("%-45d\n", 25);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags_digit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlopez-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 19:11:11 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/09/11 19:11:13 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/09/17 09:40:08 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void	ft_print_minus(int x, int length, t_printf *data)
 		length--;
 	}
 	data->zero = 0;
-	data->width = 0;
+	data->minus = 0;
+	//data->width = 0;
 }
