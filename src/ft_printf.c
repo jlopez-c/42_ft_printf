@@ -19,6 +19,7 @@ void	ft_init(t_printf *data)
     data->width = 0;
     data->zero = 0;
     data->minus = 0;
+    data->precision = 0;
     data->to_type = ' ';
     data->ar_len = 0;
     data->hex_len = 0;
@@ -84,15 +85,25 @@ void	ft_width(t_printf *data)
     }
 }
 
+void    ft_precision(t_printf *data)
+{
+    //printf("Entra aquiiiii");
+    if (*data->str == '.')
+    {
+        data->precision = 1;
+        data->str++;
+    }
+}
+
 void	ft_options(t_printf *data)
 {
     data->str++;
     if (*data->str  == '-' || *data->str  == '0')
         ft_flags(data);
+    if (*data->str  == '.')
+    	ft_precision(data);
     if (*data->str  == '*' || (ft_isdigit(*data->str) ))
         ft_width(data);
-    //if (*data->str  == '.')
-    //	ft_precision(x);
     if (*data->str  != '\0')
         ft_conversion(data);
 }

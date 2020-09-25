@@ -18,7 +18,7 @@ OBJ_DIR 	=	obj/
 SRC_DIR 	= 	src/
 SRC_FILES =		ft_printf.c char_str.c digit.c hexa.c percent.c ptr.c \
 				unsigned.c flags_char.c flags_digit.c flags_ptr.c \
-				flags_str.c flags_hexa.c
+				flags_str.c flags_hexa.c flags_unsigned.c
 				
 SRC = $(SRC_FILES:%=$(SRC_DIR)%)
 

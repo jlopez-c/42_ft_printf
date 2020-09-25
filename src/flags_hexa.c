@@ -20,6 +20,7 @@ void	ft_print_width_hex(unsigned int x, int length, t_printf *data)
 		data->counter += write(1, " ", 1);
 		length--;
 	}
+	data->precision = 0;
 	data->width = 0;
 	data->zero = 0;
 	ft_puthexa(x, data);
@@ -32,6 +33,8 @@ void	ft_print_zeros_hex(unsigned int x, int length, t_printf *data)
 		data->counter += write(1, "0", 1);
 		length--;
 	}
+	//printf("VAMOS A VEEER%d", data->precision);
+	data->precision = 0;
 	data->width = 0;
 	data->zero = 0;
 	ft_puthexa(x, data);

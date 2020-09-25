@@ -47,14 +47,16 @@ void	ft_puthexa(unsigned int x, t_printf *data)
 
 	length = data->width - data->hex_len;
 	//	printf("\n%d\n", length);
-	if (data->zero == 0 && data->width > 0 && data->minus == 0)
-		ft_print_width_hex(x, length, data);
-	//Este parrafo me imprime los zeros
-	else if (data->zero == 1 && data->minus == 0)
-		ft_print_zeros_hex(x, length, data);
+
+
 	//Este parrafo maneja los menos
-	else if (data->minus == 1 && data->width > 0 && (data->zero == 0))
+	if (data->minus == 1 && data->width > 0 && (data->zero == 0))
 		ft_print_minus_hex(x, length, data);
+	//Este parrafo me imprime los zeros
+	else if ((data->zero == 1 || data->precision == 1) && data->minus == 0)
+		ft_print_zeros_hex(x, length, data);
+	else if (data->zero == 0 && data->width > 0 && data->minus == 0)
+		ft_print_width_hex(x, length, data);
 	else
 		ft_puthexa_alone(x, data);
 }

@@ -17,7 +17,7 @@ int main()
 {
     int a = 0;
     int b = 0;
-    //long long int c;
+    long long int c;
 
    // a = ft_printf("Hello W%orld\n");
    // b = printf("Hello World\n");
@@ -28,8 +28,8 @@ int main()
  //a =  printf("printf:  %i\n", 89556);
  //b =  ft_printf("ft_print %i\n", 89556);
 
-// a =  printf("printf: %u\n", 25);
-// b =  ft_printf("ftprint %u\n", 25);
+ a =  printf("printf: %-10u\n", 26);
+ b =  ft_printf("ftprint %-10u\n", 26);
 //
 // a =  printf("printf: %20u\n", -99);
 // b =  ft_printf("ftprint %u\n", -25);
@@ -77,8 +77,8 @@ int main()
  // a = printf("%010d\n", 6589); 
  // b = ft_printf("%010d\n", 6589);
 
-a = printf("%-*d, %45d\n", 10, 6589, 25); 
-b = ft_printf("%-*d, %45d\n", 10, 6589, 25);
+//a = printf("%-*d, %.45d, %.5i, %-6X\n", 10, 6589, 25, 42, 5995); 
+//b = ft_printf("%-*d, %.45d, %.5i, %-6X\n", 10, 6589, 25, 42, 5995);
 
 //a = printf("%-45d\n", 25); 
 //b = ft_printf("%-45d\n", 25);
@@ -91,9 +91,18 @@ b = ft_printf("%-*d, %45d\n", 10, 6589, 25);
   //printf("%-8d\n", 6); 
   //ft_printf("%0-8d\n", 6);
 
+//------------------FLags para la precision---------------//
+//a = printf("%.15x\n", 66); 
+//b = ft_printf("%.15x\n", 66); 
 
-// a = printf("%.15d\n", 6); 
-  //printf("%.6d\n", 6); 
+//a = printf("%5c\n", 'H'); 
+//b = printf("%5c\n", 'H'); 
+
+//a = printf("%-20s\n", "Hello world"); 
+//b = ft_printf("%-20s\n", "Hello world"); 
+
+//a = printf("%.3s\n", "Hello world"); 
+//b = ft_printf("%.3s\n", "Hello world"); 
 
     printf("\033[35mlength printf:    %d\n", a);
     printf("length ft_printf: %d\n", b);

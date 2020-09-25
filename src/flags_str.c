@@ -44,3 +44,14 @@ void	ft_print_width_str(char *str, int i, int length, t_printf *data)
 	}
 	//ft_put_str(data, str);
 }
+
+void	ft_print_precision(char *str, int i, t_printf *data)
+{
+	//printf("entra aqui");
+	while (data->width > 0)
+	{
+		data->counter += write(1, str + i, 1);
+		i++;
+		data->width--;
+	}
+}

@@ -45,7 +45,7 @@ void	ft_putnbr(int n, t_printf *data)
 	x = n;
 	length = data->width - data->ar_len;
 	//Este parrafo me imprime los zeros
-	if (data->zero == 1 && data->minus == 0)
+	if ((data->zero == 1 || data->precision == 1) && data->minus == 0)
 		ft_print_zeros(x, length, data);
 	//Este parrafor me imprime los espacios
 	else if (data->zero == 0 && data->width > 0 && data->minus == 0)

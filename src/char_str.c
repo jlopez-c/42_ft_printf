@@ -45,6 +45,9 @@ void		ft_put_str(t_printf *data, char *str)
 	//Cuando hay un minus
 	if (data->width > 0 && data->minus == 1)
 		ft_print_minus_str(str, i, length, data);
+	//Cuando hay un . y width > 0
+	else if ((data->width > 0 || data->width == 0) && data->precision == 1)
+		ft_print_precision(str, i, data);
 	////Cuando tiene width
 	else if (data->width > 0 && data->minus == 0) 
 		ft_print_width_str(str, i, length, data);
@@ -63,7 +66,7 @@ void		ft_str(t_printf *data)
 {
 	char	*str;
 
-	str = va_arg(data->args, char *);	
+	str = va_arg(data->args, char *);
 	data->ar_len = ft_strlen(str);
 	ft_put_str(data, str);
 }

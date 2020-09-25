@@ -26,6 +26,7 @@ typedef struct	s_printf
     int         width;
     int         zero;
     int         minus;
+    int         precision;
     char        to_type;
     int         ar_len;
     int         hex_len;
@@ -42,6 +43,8 @@ void		ft_put_str(t_printf *data, char *str);
 void	    ft_digit(t_printf *data);
 void	    ft_putnbr_alone(int n, t_printf *data);
 void	    ft_unsigned(t_printf *data);
+//void        ft_putnbr_unsig(int n, t_printf *data);
+void        ft_putnbr_unsig_alone(int n, t_printf *data);
 void	    ft_hexa(t_printf *data);
 void	    ft_puthexa(unsigned int x, t_printf *data);
 void	    ft_puthexa_alone(unsigned int x, t_printf *data);
@@ -59,6 +62,7 @@ void		ft_print_width_c(char c, int length, t_printf *data);
 /* Flags Str*/
 void	    ft_print_minus_str(char *str, int i, int length, t_printf *data);
 void	    ft_print_width_str(char *str, int i, int length, t_printf *data);
+void	    ft_print_precision(char *str, int i, t_printf *data);
 
 /* Flags Ptr*/
 void        ft_print_width_ptr(int length, t_printf *data);
@@ -67,5 +71,10 @@ void        ft_print_width_ptr(int length, t_printf *data);
 void	    ft_print_width_hex(unsigned int x, int length, t_printf *data);
 void	    ft_print_zeros_hex(unsigned int x, int length, t_printf *data);
 void	    ft_print_minus_hex(unsigned int x, int length, t_printf *data);
+
+/* Flags Unsigned*/
+void        ft_print_zeros_u(int x, int length, t_printf *data);
+void	    ft_print_width_u(int x, int length, t_printf *data);
+void	    ft_print_minus_u(int x, int length, t_printf *data);
 
 #endif
