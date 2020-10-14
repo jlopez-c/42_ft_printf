@@ -20,10 +20,13 @@ void	ft_init(t_printf *data)
     data->zero = 0;
     data->minus = 0;
     data->precision = 0;
-    data->to_type = ' ';
+    //data->to_type = ' ';
     data->ar_len = 0;
     data->hex_len = 0;
     data->unsigned_len = 0;
+    data->width_prec = 0;
+    data->flags2 = 0;
+    data->repeat = 0;
 }
 
 void	ft_flags(t_printf *data)
@@ -31,14 +34,14 @@ void	ft_flags(t_printf *data)
     if (*data->str == '-')
     {
         data->minus = 1;
-        data->to_type = ' ';
+        //data->to_type = ' ';
         //x->flags2 = 1;
         data->str++;
     }
     else if (*data->str == '0')
     {
         data->zero = 1;
-        data->to_type = '0';
+        //data->to_type = '0';
         //x->flags2 = -1;
         data->str++;
     }
@@ -73,7 +76,7 @@ void	ft_width(t_printf *data)
             data->width *= -1;
             data->minus = 1;
             //x->flags2 = 1;
-            data->to_type = ' ';
+            //data->to_type = ' ';
         }
         data->str++;
     }
@@ -87,7 +90,6 @@ void	ft_width(t_printf *data)
 
 void    ft_precision(t_printf *data)
 {
-    //printf("Entra aquiiiii");
     if (*data->str == '.')
     {
         data->precision = 1;
@@ -98,12 +100,15 @@ void    ft_precision(t_printf *data)
 void	ft_options(t_printf *data)
 {
     data->str++;
+    data->repeat = 1;
     if (*data->str  == '-' || *data->str  == '0')
         ft_flags(data);
     if (*data->str  == '.')
     	ft_precision(data);
     if (*data->str  == '*' || (ft_isdigit(*data->str) ))
         ft_width(data);
+    if  (*data->str == '.' && data->width > 0)
+        ft_take_precision(data);
     if (*data->str  != '\0')
         ft_conversion(data);
 }
@@ -118,6 +123,9 @@ int		ft_printf(const char *format, ...)
     while (*data.str)
     {
         if (*data.str == '%')
+            ft_options(&data);
+        else if ((*data.str == '0' || *data.str == '*' || *data.str == '.' ||
+        *data.str == '-' || ft_isdigit(*data.str)) && data.repeat == 1)
             ft_options(&data);
         else
             data.counter += write(1, data.str, 1);

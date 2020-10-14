@@ -24,7 +24,8 @@ void	ft_print_zeros_u(int x, int length, t_printf *data)
 			data->zero = 0;
 			data->precision = 0;
 			data->width = 0;
-		ft_putnbr_unsig_alone(x, data);
+		ft_putnbr_unsig(x, data);
+		//ft_putnbr_unsig_alone(x, data);
 }
 
 void	ft_print_width_u(int x, int length, t_printf *data)
@@ -37,7 +38,8 @@ void	ft_print_width_u(int x, int length, t_printf *data)
 			data->zero = 0;
             data->precision = 0;
 			data->width = 0;
-		ft_putnbr_unsig_alone(x, data);
+		ft_putnbr_unsig(x, data);
+		//ft_putnbr_unsig_alone(x, data);
 }
 
 void	ft_print_minus_u(int x, int length, t_printf *data)
@@ -48,7 +50,8 @@ void	ft_print_minus_u(int x, int length, t_printf *data)
 		data->counter += write(1, " ", 1);
 		length--;
 	}
-	data->zero = 0;
+	//data->zero = 0;
 	data->minus = 0;
-	data->width = 0;
+	//data->width = 0;
+	ft_putnbr_unsig(x, data);
 }
