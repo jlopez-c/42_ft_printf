@@ -61,6 +61,8 @@ void	    ft_print_width(int x, int length, t_printf *data);
 void	    ft_print_minus(int x, int length, t_printf *data);
 void        ft_print_prec_width(int x, t_printf *data);
 void        ft_take_precision(t_printf *data);
+void	    ft_normal_and_width_precision(int length, t_printf *data);
+void        ft_minus_and_width_precision(int x, int length, t_printf *data);
 
 /*
 ** Flags Char

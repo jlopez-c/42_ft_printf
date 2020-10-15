@@ -108,22 +108,28 @@ int main()
 
 
 
+//
+//a = printf("10.2d %10.2d\n", -55555);
+//b = ft_printf("10.2d %10.2d\n", -55555);
+//
+//
+//a = printf("%.6d\n", -3);
+//b = ft_printf("%.6d\n", -3);
+//
+//a = printf("%8.3d\n", 34);
+//b = ft_printf("%8.3d\n", 34);
+//
+//a = printf("%10.5d\n", -216);
+//b = ft_printf("%10.5d\n", -216);
+//
+//a = printf("%8.3d\n", -8473);
+//b = ft_printf("%8.3d\n", -8473);
 
-a = printf("10.2d %10.2d\n", -55555);
-b = ft_printf("10.2d %10.2d\n", -55555);
+//a = printf("%-8.5d\n", 34);
+//b = ft_printf("%-8.5d\n", 34);
 
-
-a = printf("%.6d\n", -3);
-b = ft_printf("%.6d\n", -3);
-
-a = printf("%8.3d\n", 34);
-b = ft_printf("%8.3d\n", 34);
-
-a = printf("%10.5d\n", -216);
-b = ft_printf("%10.5d\n", -216);
-
-a = printf("%8.3d\n", -8473);
-b = ft_printf("%8.3d\n", -8473);
+a = printf("%0-8.5d\n", 34);
+b = ft_printf("%0-8.5d\n", 34);
 
 //a = printf("%.6d\n", -3);
 //b = ft_printf("%.6d\n", -3);

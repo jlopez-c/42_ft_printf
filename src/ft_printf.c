@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/09/17 09:39:32 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/10/15 21:25:15 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_flags(t_printf *data)
         //x->flags2 = 1;
         data->str++;
     }
-    else if (*data->str == '0')
+    if (*data->str == '0')
     {
         data->zero = 1;
         //data->to_type = '0';
@@ -102,12 +102,15 @@ void	ft_options(t_printf *data)
     data->str++;
     data->repeat = 1;
     if (*data->str  == '-' || *data->str  == '0')
+        //printf("Aqui entra?");
         ft_flags(data);
     if (*data->str  == '.')
     	ft_precision(data);
-    if (*data->str  == '*' || (ft_isdigit(*data->str) ))
+    if (*data->str  == '*' || (ft_isdigit(*data->str)))
+    //printf("Aqui entra????");
         ft_width(data);
     if  (*data->str == '.' && data->width > 0)
+    //printf("Aqui entraaaaaaaaaaaaaaa?");
         ft_take_precision(data);
     if (*data->str  != '\0')
         ft_conversion(data);

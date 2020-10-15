@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   precision.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlopez-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:41:04 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/09/29 16:41:07 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/10/15 21:26:34 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,73 @@ void ft_take_precision(t_printf *data)
                 data->str++;	
         }
     }
-   // printf("Esta es la width de la precision%d\n", data->width_prec);
-    //printf("Esta es la width normal%d\n", data->width);
-    //printf("Esta es el estado de la precision%d\n", data->precision);
+    printf("Esta es la width de la precision%d\n", data->width_prec);
+    printf("Esta es la width normal%d\n", data->width);
+    printf("HOLA ESTA ES EL ESTADO DEL MINUS: %d\n", data->minus);
+    printf("Esta es el estado de la precision%d\n", data->precision);
+}
+
+void	ft_normal_and_width_precision(int length, t_printf *data)
+{
+	//if(data->width >= data->ar_len)
+	//{	
+	while (length > 0)
+	{
+		data->counter += write(1, " ", 1);
+		length--;
+	}
+	//}
+	length = 0;
+	if (data->flags2 == 1)
+	{
+		data->counter += write(1, "-", 1);
+		data->ar_len--;
+		while ((data->width_prec - data->ar_len + length) > 0)
+		{
+			data->counter += write(1, "0", 1);
+			length--;
+		}
+	}
+	else
+	{
+		while ((data->width_prec - data->ar_len + length) > 0)
+		{
+			data->counter += write(1, "0", 1);
+			length--;
+		}
+	}
+}
+
+void	ft_minus_and_width_precision(int x, int length, t_printf *data)
+{
+    
+    int     copy;
+
+    copy = length;
+    //printf("HOLA TUuuuuuuuuuu %d\n", copy);
+	length = 0;
+	if (data->flags2 == 1)
+	{
+		data->counter += write(1, "-", 1);
+		data->ar_len--;
+		while ((data->width_prec - data->ar_len + length) > 0)
+		{
+			data->counter += write(1, "0", 1);
+			length--;
+		}
+	}
+	else
+	{
+		while ((data->width_prec - data->ar_len + length) > 0)
+		{
+			data->counter += write(1, "0", 1);
+			length--;
+		}
+	}
+    ft_putnbr_alone(x, data);
+    while (copy > 0)
+	{
+		data->counter += write(1, " ", 1);
+		copy--;
+	}
 }
