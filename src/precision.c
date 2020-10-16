@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:41:04 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/15 21:26:34 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/10/15 21:50:42 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void ft_take_precision(t_printf *data)
                 data->str++;	
         }
     }
-    printf("Esta es la width de la precision%d\n", data->width_prec);
-    printf("Esta es la width normal%d\n", data->width);
-    printf("HOLA ESTA ES EL ESTADO DEL MINUS: %d\n", data->minus);
-    printf("Esta es el estado de la precision%d\n", data->precision);
+    //printf("Esta es la width de la precision%d\n", data->width_prec);
+    //printf("Esta es la width normal%d\n", data->width);
+    //printf("HOLA ESTA ES EL ESTADO DEL MINUS: %d\n", data->minus);
+    //printf("Esta es el estado de la precision%d\n", data->precision);
 }
 
 void	ft_normal_and_width_precision(int length, t_printf *data)

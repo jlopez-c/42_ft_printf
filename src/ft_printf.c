@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/15 21:25:15 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/10/16 18:33:52 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_flags(t_printf *data)
 {
     if (*data->str == '-')
     {
+       // printf("HOLA 1\n");
         data->minus = 1;
         //data->to_type = ' ';
         //x->flags2 = 1;
@@ -40,6 +41,7 @@ void	ft_flags(t_printf *data)
     }
     if (*data->str == '0')
     {
+       // printf("HOLA 2\n");
         data->zero = 1;
         //data->to_type = '0';
         //x->flags2 = -1;
@@ -101,8 +103,10 @@ void	ft_options(t_printf *data)
 {
     data->str++;
     data->repeat = 1;
-    if (*data->str  == '-' || *data->str  == '0')
+    if (*data->str  == '0')
         //printf("Aqui entra?");
+        ft_flags(data);
+    if (*data->str == '-')
         ft_flags(data);
     if (*data->str  == '.')
     	ft_precision(data);

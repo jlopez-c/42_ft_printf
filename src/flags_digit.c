@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 19:11:11 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/15 21:21:27 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/10/16 18:34:54 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,13 @@
 void	ft_print_zeros(int x, int length, t_printf *data)
 {
 	
-	//printf("¿Esta usted entrando aqui?");
+	//printf("¿Esta usted entrando aqui?\n");
+	//printf("Este es el width %d\n", data->width);
+	//printf("¿Esta es estado de precision %d\n", data->precision);
+	//printf("¿Esta es  longitud de precision %d\n", data->width_prec);
+	//printf("¿Esta es la zero %d\n", data->zero);
+	//printf("¿Esta es la minus %d\n", data->minus);
+	//printf("¿Esta es la len %d\n", data->ar_len);
 	//if (data->precision == 1 && x < 0)
 		//length = length + 1;
 	//	data->counter += write(1, "0", 1);
@@ -69,7 +75,7 @@ void	ft_print_prec_width(int x, t_printf *data)
 	//printf("¿Esta es la zero %d\n", data->zero);
 	//printf("¿Esta es la minus %d\n", data->minus);
 	//printf("¿Esta es la len %d\n", data->ar_len);
-
+//
 
 	//length = data->width - data->width_prec - 1;
 	//if (data->width >= data->ar_len)
