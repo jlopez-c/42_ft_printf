@@ -97,7 +97,7 @@ void        ft_print_zeros_u(unsigned int x, int length, t_printf *data);
 void	    ft_print_width_u(unsigned int x, int length, t_printf *data);
 void	    ft_print_minus_u(unsigned int x, int length, t_printf *data);
 void        ft_print_prec_width_u(unsigned int x, t_printf *data);
-void	    ft_normal_and_width_precision_u(unsigned int length, t_printf *data);
+void	    ft_normal_and_width_precision_u(int length, t_printf *data);
 void        ft_minus_and_width_precision_u(unsigned int x, int length, t_printf *data);
 void        ft_zero_exception_u(unsigned int d, t_printf *data);
 #endif

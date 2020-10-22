@@ -61,6 +61,7 @@ void	ft_putnbr_unsig(unsigned int n, t_printf *data)
 	int length;
     
 	length = data->width - data->ar_len;
+		//printf("HOLA este es el length11111 %d", length);
 		//Este parrafo me imprime los zeros
 		if (data->zero == 1 && data->minus == 0 && data->width_prec == 0 && n != 0)
 			ft_print_zeros_u(n, length, data);

@@ -13,12 +13,17 @@
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
-void	ft_normal_and_width_precision_u(unsigned int length, t_printf *data)
+void	ft_normal_and_width_precision_u(int length, t_printf *data)
 {
-	while (length > 0)
+	//printf("HOLA este es el length %d", length);
+	
+	if (length > 0)
 	{
-		data->counter += write(1, " ", 1);
-		length--;
+		while (length > 0)
+		{
+			data->counter += write(1, " ", 1);
+			length--;
+		}
 	}
 	length = 0;
 	if (data->flags2 == 1)
@@ -39,6 +44,7 @@ void	ft_normal_and_width_precision_u(unsigned int length, t_printf *data)
 			length--;
 		}
 	}
+	
 }
 
 void	ft_minus_and_width_precision_u(unsigned int x, int length, t_printf *data)

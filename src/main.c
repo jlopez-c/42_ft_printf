@@ -31,11 +31,11 @@ int main()
  //a =  printf("printf: %u\n", 26);
  //b =  ft_printf("ftprint %u\n", 26);
 
- //a =  printf("printf: %.10u\n", 26);
- //b =  ft_printf("ftprint %.10u\n", 26);
+ a =  printf("printf: %.10u\n", 26);
+ b =  ft_printf("ftprint %.10u\n", 26);
 
-a = printf("%-7u\n", 33);
-b = ft_printf("%-7u\n", 33);
+//a = printf("%-7u\n", 33);
+//b = ft_printf("%-7u\n", 33);
 
 // a = printf("%.6d\n", -33);
 // b = ft_printf("%.6d\n", -33);
