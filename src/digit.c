@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 19:12:09 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/15 21:25:37 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/10/19 10:56:25 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,8 @@ void	ft_putnbr(int n, t_printf *data)
 
 	x = n;
 	length = data->width - (data->ar_len);
-		//printf("HOLA TU este es minus %d", data->minus);
-		//printf("HOLA TU este es zero %d", data->zero);
 	//Este parrafo me imprime los zeros
-	if ((data->zero == 1 || data->precision == 1) && data->minus == 0 && data->width_prec == 0)
+	if (data->zero == 1 && data->minus == 0 && data->width_prec == 0 && n != 0)
 		ft_print_zeros(x, length, data);
 	//Este parrafor me imprime los espacios
 	else if (data->zero == 0 && data->width > 0 && data->minus == 0 && data->precision == 0)
@@ -55,8 +53,13 @@ void	ft_putnbr(int n, t_printf *data)
 	//Este parrafo maneja los menos
 	else if (data->minus == 1 && data->width > 0 && (data->zero == 0 || data->zero == 1) && data->precision == 0)
 		ft_print_minus(x, length, data);
-	else if (data->width > 0 && data->width_prec > 0)
+	else if (data->width >= 0 && data->width_prec > 0)
 		ft_print_prec_width(x, data);
+	else if (n == 0 && (data->precision == 1 || data->zero == 1) && data->width_prec == 0)
+	{
+		ft_zero_exception(n, data);
+		return ;
+	}
 	else
 		ft_putnbr_alone(x, data);
 }
@@ -67,7 +70,7 @@ void	ft_digit(t_printf *data)
 
 	d = va_arg(data->args, int);
 	data->ar_len = ft_strlen((ft_itoa(d)));
-	ft_take_precision(data);
+	
 	if (d < 0 && data->precision == 1 && data->width_prec == 0)
 		data->ar_len--;
 	if (d < 0 && (data->zero == 1 || data->precision == 1) && data->width_prec == 0)
@@ -75,7 +78,7 @@ void	ft_digit(t_printf *data)
 		data->counter += write(1, "-", 1);
 		d = -1 * d;
 	}
-	else if (d < 0 && data->precision == 1 && data->width_prec > 0)
+	if (d < 0 && data->precision == 1 && data->width_prec > 0)
 	{
 		d = -1 * d;
 		//Activo data->flags2 cuando el  numero es negativo y hay width y precision

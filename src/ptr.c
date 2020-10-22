@@ -68,6 +68,11 @@ void	ft_ptr(t_printf *data)
 	unsigned long int ptr;
 
 	ptr = va_arg(data->args, unsigned long int);
+    if (!ptr)
+    {
+        data->counter += write(1, "0x0", 3);
+        return ;
+    }
     data->ar_len = ft_strlen(ft_itoa(ptr));
 	ft_putptr(ptr, data);
 }

@@ -28,8 +28,15 @@ int main()
  //a =  printf("printf:  %i\n", 89556);
  //b =  ft_printf("ft_print %i\n", 89556);
 
- //a =  printf("printf: %-.10u\n", 26);
- //b =  ft_printf("ftprint %-.10u\n", 26);
+ //a =  printf("printf: %u\n", 26);
+ //b =  ft_printf("ftprint %u\n", 26);
+
+ //a =  printf("printf: %.10u\n", 26);
+ //b =  ft_printf("ftprint %.10u\n", 26);
+
+a = printf("%-7u\n", 33);
+b = ft_printf("%-7u\n", 33);
+
 // a = printf("%.6d\n", -33);
 // b = ft_printf("%.6d\n", -33);
 //
@@ -55,9 +62,9 @@ int main()
  //a = printf("%% %% %%\n");
  //b = ft_printf("%% %% %%\n");
  //b = ft_printf("%%");
- // a =  printf("printf: %s %d\n",  "Hello 42 Madrid 3f", 5);
-//a =  printf("   printf: %%%%, %20s, %X, %x, %10c, %5d, %u, %p.\n", "Hello 42 Madrid", -1, 0, 'a', 33, -42, &c);
-//b =  ft_printf("ft_printf: %%%%, %20s, %X, %x, %10c, %5d, %u, %p.\n", "Hello 42 Madrid", -1, 0, 'a', 33, -42, &c);
+  //a =  printf("printf: %s %d\n",  "Hello 42 Madrid 3f", 5);
+//a =  printf("   printf: %%%%, %20s, %X, %x, %10c, %5d, %u, %p .\n", "Hello 42 Madrid", -1, 0, 'a', 33, -42, &c);
+//b =  ft_printf("ft_printf: %%%%, %20s, %X, %x, %10c, %5d, %u, %p .\n", "Hello 42 Madrid", -1, 0, 'a', 33, -42, &c);
 
 //printf("%*d\n", 3, 56);
 //ft_printf("%*d\n", 3, 56);
@@ -78,7 +85,7 @@ int main()
 
  // a = printf("%010d\n", 6589); 
  // b = ft_printf("%010d\n", 6589);
-
+//
 //a = printf("%-*d, %.45d, %.5i, %-6X\n", 10, 6589, 25, 42, 5995); 
 //b = ft_printf("%-*d, %.45d, %.5i, %-6X\n", 10, 6589, 25, 42, 5995);
 
@@ -93,7 +100,7 @@ int main()
   //printf("%-8d\n", 6); 
   //ft_printf("%0-8d\n", 6);
 
-//------------------FLags para la precision---------------//
+//------------------FLags para la precision en los digit---------------//
 //a = printf("%.15d\n", 66); 
 //b = ft_printf("%.15d\n", 66); 
 
@@ -128,14 +135,39 @@ int main()
 //a = printf("%-8.5d\n", 34);
 //b = ft_printf("%-8.5d\n", 34);
 
-a = printf("%0-8.5d\n", 34);
-b = ft_printf("%0-8.5d\n", 34);
+//a = printf("%0-8.5d\n", 34);
+//b = ft_printf("%0-8.5d\n", 34);
 
 //a = printf("%.6d\n", -3);
 //b = ft_printf("%.6d\n", -3);
 
 //a = printf("%9.5d\n", -216);
 //b = ft_printf("%9.5d\n", -216);
+
+
+//a = printf("%5.3d\n", 0);
+//b = ft_printf("%5.3d\n", 0);
+
+//a = printf("%.3d\n", 2);
+//b = ft_printf("%.3d\n", 2);
+
+//a = printf("%.*d\n", -3, 0);
+//b = ft_printf("%.*d\n", -3, 0);
+
+//a = printf("%03d\n", 0);
+//b = ft_printf("%03d\n", 0);
+
+//a = printf("%.d\n", 0);
+//b = ft_printf("%.d\n", 0);
+//
+//a = printf("%.0d\n", 0);
+//b = ft_printf("%.0d\n", 0);
+//
+//a = printf("%5.0d\n", 0);
+//b = ft_printf("%5.0d\n", 0);
+//
+//a = printf("%5.d\n", 0);
+//b = ft_printf("%5.d\n", 0);
 
     printf("\033[35mlength printf:    %d\n", a);
     printf("length ft_printf: %d\n", b);

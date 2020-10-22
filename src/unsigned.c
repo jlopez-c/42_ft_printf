@@ -28,12 +28,13 @@ void	ft_length_unsigned(int u, t_printf *data)
 	data->unsigned_len++;
 }
 */
-void	ft_putnbr_unsig_alone(int n, t_printf *data)
+void	ft_putnbr_unsig_alone(unsigned int n, t_printf *data)
 {
-	unsigned long int 	max;
-	unsigned long int 	suma;
+	//unsigned long int 	max;
+	//unsigned long int 	suma;
 	int					count;
 
+	/*
 	max = 4294967296;
 	if (n < 0)
 	{
@@ -46,6 +47,7 @@ void	ft_putnbr_unsig_alone(int n, t_printf *data)
 		data->counter += write(1, &suma, 1);
 		return;
 	}
+	*/
 	if (n >= 10)
 	{
 		ft_putnbr_unsig_alone((n / 10), data);
@@ -54,7 +56,7 @@ void	ft_putnbr_unsig_alone(int n, t_printf *data)
 	data->counter += write(1, &count, 1);
 }
 
-void	ft_putnbr_unsig(int n, t_printf *data)
+void	ft_putnbr_unsig(unsigned int n, t_printf *data)
 {
 	int length;
     
@@ -76,12 +78,10 @@ void	ft_unsigned(t_printf *data)
 {
 	int 	u;
 
-	u = va_arg(data->args, int);
+	u = va_arg(data->args, unsigned int);
 	//if (u < 0)
 	//	ft_length_unsigned(u, data);
 	//else
 	data->ar_len = ft_strlen(ft_itoa(u));
-
-	//printf("%d\n", data->ar_len);
 	ft_putnbr_unsig(u, data);
 }

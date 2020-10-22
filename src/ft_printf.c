@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/16 18:33:52 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/10/19 18:52:41 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_flags(t_printf *data)
 {
     if (*data->str == '-')
     {
-       // printf("HOLA 1\n");
         data->minus = 1;
         //data->to_type = ' ';
         //x->flags2 = 1;
@@ -41,7 +40,6 @@ void	ft_flags(t_printf *data)
     }
     if (*data->str == '0')
     {
-       // printf("HOLA 2\n");
         data->zero = 1;
         //data->to_type = '0';
         //x->flags2 = -1;
@@ -103,21 +101,35 @@ void	ft_options(t_printf *data)
 {
     data->str++;
     data->repeat = 1;
+    
     if (*data->str  == '0')
-        //printf("Aqui entra?");
         ft_flags(data);
     if (*data->str == '-')
         ft_flags(data);
     if (*data->str  == '.')
     	ft_precision(data);
-    if (*data->str  == '*' || (ft_isdigit(*data->str)))
-    //printf("Aqui entra????");
+    if ((*data->str  == '*' || ft_isdigit(*data->str)) && data->precision == 0 )
         ft_width(data);
-    if  (*data->str == '.' && data->width > 0)
-    //printf("Aqui entraaaaaaaaaaaaaaa?");
+    if  (*data->str == '.' || data->precision == 1)
         ft_take_precision(data);
-    if (*data->str  != '\0')
+    if (*data->str  != '\0')        // conseguir o controlar que no se meta a ft conversion unicamente si no ha llegado al finall, puede haber espacios u otro tipo de chars
         ft_conversion(data);
+}
+
+void      ft_state_flags(t_printf *data)
+{
+   // printf("\n\nEsto es el estado de counter %s \n", data->str);
+	printf("\n\nEsto es el estado de counter %d \n", data->counter);			
+    printf("Esto es el estado de width %d \n", data->width);
+    printf("Esto es el estado de zero %d \n", data->zero);
+    printf("Esto es el estado de minus %d \n", data->minus);
+    printf("Esto es el estado de precision %d \n ", data->precision);
+    printf("Esto es el estado de ar_len %d \n", data->ar_len);
+    printf("Esto es el estado de hex_len %d \n", data->hex_len);
+    printf("Esto es el estado de unsigned_len %d \n", data->unsigned_len);
+    printf("Esto es el estado de width_prec %d \n", data->width_prec);
+    printf("Esto es el estado de flags2 %d \n", data->flags2);
+  //  printf("Esto es el estado de repeat %d \n\n\n", data->repeat);
 }
 
 int		ft_printf(const char *format, ...)
@@ -131,13 +143,15 @@ int		ft_printf(const char *format, ...)
     {
         if (*data.str == '%')
             ft_options(&data);
-        else if ((*data.str == '0' || *data.str == '*' || *data.str == '.' ||
-        *data.str == '-' || ft_isdigit(*data.str)) && data.repeat == 1)
-            ft_options(&data);
+      //  else if ((*data.str == '0' || *data.str == '*' || *data.str == '.' ||
+     //   *data.str == '-' || ft_isdigit(*data.str)) && data.repeat == 1)
+     //       ft_options(&data);
         else
             data.counter += write(1, data.str, 1);
+        //ft_state_flags(&data);
         data.str++;
     }
+    //ft_state_flags(&data);
     va_end(data.args);
     return (data.counter);
 }

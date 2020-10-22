@@ -46,8 +46,8 @@ void		ft_put_str(t_printf *data, char *str);
 void	    ft_digit(t_printf *data);
 void	    ft_putnbr_alone(int n, t_printf *data);
 void	    ft_unsigned(t_printf *data);
-void        ft_putnbr_unsig(int n, t_printf *data);
-void        ft_putnbr_unsig_alone(int n, t_printf *data);
+void        ft_putnbr_unsig(unsigned int n, t_printf *data);
+void        ft_putnbr_unsig_alone(unsigned int n, t_printf *data);
 void	    ft_hexa(t_printf *data);
 void	    ft_puthexa(unsigned int x, t_printf *data);
 void	    ft_puthexa_alone(unsigned int x, t_printf *data);
@@ -63,6 +63,7 @@ void        ft_print_prec_width(int x, t_printf *data);
 void        ft_take_precision(t_printf *data);
 void	    ft_normal_and_width_precision(int length, t_printf *data);
 void        ft_minus_and_width_precision(int x, int length, t_printf *data);
+void        ft_zero_exception(int d, t_printf *data);
 
 /*
 ** Flags Char
@@ -92,8 +93,8 @@ void	    ft_print_minus_hex(unsigned int x, int length, t_printf *data);
 /*
 ** Flags Unsigned
 */
-void        ft_print_zeros_u(int x, int length, t_printf *data);
-void	    ft_print_width_u(int x, int length, t_printf *data);
-void	    ft_print_minus_u(int x, int length, t_printf *data);
+void        ft_print_zeros_u(unsigned int x, int length, t_printf *data);
+void	    ft_print_width_u(unsigned int x, int length, t_printf *data);
+void	    ft_print_minus_u(unsigned int x, int length, t_printf *data);
 
 #endif

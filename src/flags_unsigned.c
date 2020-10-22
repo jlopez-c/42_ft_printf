@@ -14,35 +14,35 @@
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
-void	ft_print_zeros_u(int x, int length, t_printf *data)
+void	ft_print_zeros_u(unsigned int x, int length, t_printf *data)
 {
 			while (length > 0)
 			{
 				data->counter += write(1, "0", 1);
 				length--;
 			}
-			data->zero = 0;
-			data->precision = 0;
-			data->width = 0;
-		ft_putnbr_unsig(x, data);
-		//ft_putnbr_unsig_alone(x, data);
+			//data->zero = 0;
+			//data->precision = 0;
+			//data->width = 0;
+		//ft_putnbr_unsig(x, data);
+		ft_putnbr_unsig_alone(x, data);
 }
 
-void	ft_print_width_u(int x, int length, t_printf *data)
+void	ft_print_width_u(unsigned int x, int length, t_printf *data)
 {
 		while (length > 0)
 			{
 				data->counter += write(1, " ", 1);
 				length--;
 			}
-			data->zero = 0;
-            data->precision = 0;
-			data->width = 0;
-		ft_putnbr_unsig(x, data);
-		//ft_putnbr_unsig_alone(x, data);
+			//data->zero = 0;
+            //data->precision = 0;
+			//data->width = 0;
+		//ft_putnbr_unsig(x, data);
+		ft_putnbr_unsig_alone(x, data);
 }
 
-void	ft_print_minus_u(int x, int length, t_printf *data)
+void	ft_print_minus_u(unsigned int x, int length, t_printf *data)
 {
 	ft_putnbr_unsig_alone(x, data);
 	while (length > 0)
@@ -51,7 +51,8 @@ void	ft_print_minus_u(int x, int length, t_printf *data)
 		length--;
 	}
 	//data->zero = 0;
-	data->minus = 0;
+	//data->minus = 0;
 	//data->width = 0;
-	ft_putnbr_unsig(x, data);
+	//ft_putnbr_unsig(x, data);
+	//ft_putnbr_unsig_alone(x, data);
 }
