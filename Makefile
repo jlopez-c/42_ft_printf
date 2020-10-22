@@ -6,7 +6,7 @@
 #    By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/01 22:00:15 by jlopez-c          #+#    #+#              #
-#    Updated: 2020/09/01 17:55:28 by jlopez-c         ###   ########.fr        #
+#    Updated: 2020/10/22 20:27:47 by jlopez-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ OBJ_DIR 	=	obj/
 SRC_DIR 	= 	src/
 SRC_FILES =		ft_printf.c char_str.c digit.c hexa.c percent.c ptr.c \
 				unsigned.c flags_char.c flags_digit.c flags_ptr.c \
-				flags_str.c flags_hexa.c flags_unsigned.c precision.c
+				flags_str.c flags_hexa.c flags_unsigned.c precision.c \
+				precision_unsigned.c
 				
 SRC = $(SRC_FILES:%=$(SRC_DIR)%)
 

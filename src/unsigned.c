@@ -62,14 +62,21 @@ void	ft_putnbr_unsig(unsigned int n, t_printf *data)
     
 	length = data->width - data->ar_len;
 		//Este parrafo me imprime los zeros
-		if ((data->zero == 1 || data->precision == 1) && data->minus == 0)
+		if (data->zero == 1 && data->minus == 0 && data->width_prec == 0 && n != 0)
 			ft_print_zeros_u(n, length, data);
 		//Este parrafor me imprime los espacios
-		else if (data->zero == 0 && data->width > 0 && data->minus == 0)
+		else if (data->zero == 0 && data->width > 0 && data->minus == 0 && data->precision == 0)
 			ft_print_width_u(n, length, data);
 		//Este parrafo maneja los menos
-		else if (data->minus == 1 && data->width > 0 && (data->zero == 0 || data->zero == 1))
+		else if (data->minus == 1 && data->width > 0 && (data->zero == 0 || data->zero == 1) && data->precision == 0)
 			ft_print_minus_u(n, length, data);
+		else if (data->width >= 0 && data->width_prec > 0)
+			ft_print_prec_width_u(n, data);
+		else if (n == 0 && (data->precision == 1 || data->zero == 1) && data->width_prec == 0)
+		{
+			ft_zero_exception_u(n, data);
+			return ;
+		}
 		else
 			ft_putnbr_unsig_alone(n, data);
 }
@@ -83,5 +90,19 @@ void	ft_unsigned(t_printf *data)
 	//	ft_length_unsigned(u, data);
 	//else
 	data->ar_len = ft_strlen(ft_itoa(u));
+
+	if (u < 0 && data->precision == 1 && data->width_prec == 0)
+		data->ar_len--;
+	if (u < 0 && (data->zero == 1 || data->precision == 1) && data->width_prec == 0)
+	{
+		data->counter += write(1, "-", 1);
+		u = -1 * u;
+	}
+	if (u < 0 && data->precision == 1 && data->width_prec > 0)
+	{
+		u = -1 * u;
+		//Activo data->flags2 cuando el  numero es negativo y hay width y precision
+		data->flags2 = 1;
+	}
 	ft_putnbr_unsig(u, data);
 }

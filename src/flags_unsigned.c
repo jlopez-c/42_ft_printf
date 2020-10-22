@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags_unsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlopez-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 18:50:56 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/09/25 18:50:58 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/10/22 20:29:44 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	ft_print_zeros_u(unsigned int x, int length, t_printf *data)
 				data->counter += write(1, "0", 1);
 				length--;
 			}
-			//data->zero = 0;
-			//data->precision = 0;
-			//data->width = 0;
+			data->zero = 0;
+			data->precision = 0;
+			data->width = 0;
 		//ft_putnbr_unsig(x, data);
 		ft_putnbr_unsig_alone(x, data);
 }
@@ -35,9 +35,9 @@ void	ft_print_width_u(unsigned int x, int length, t_printf *data)
 				data->counter += write(1, " ", 1);
 				length--;
 			}
-			//data->zero = 0;
+			data->zero = 0;
             //data->precision = 0;
-			//data->width = 0;
+			data->width = 0;
 		//ft_putnbr_unsig(x, data);
 		ft_putnbr_unsig_alone(x, data);
 }
@@ -50,9 +50,27 @@ void	ft_print_minus_u(unsigned int x, int length, t_printf *data)
 		data->counter += write(1, " ", 1);
 		length--;
 	}
-	//data->zero = 0;
-	//data->minus = 0;
-	//data->width = 0;
+	data->zero = 0;
+	data->minus = 0;
+	data->width = 0;
 	//ft_putnbr_unsig(x, data);
 	//ft_putnbr_unsig_alone(x, data);
+}
+
+void	ft_print_prec_width_u(unsigned int x, t_printf *data)
+{
+	int length;
+
+	length = data->width - data->ar_len;
+	if (data->width_prec > data->ar_len)
+		length = data->width - data->width_prec;
+	if (data->flags2 == 1 && data->width_prec > data->ar_len)
+		length--;
+	if (data->minus == 1 || (data->minus == 1 && data->zero == 1))
+		ft_minus_and_width_precision_u(x, length, data);
+	else
+	{
+		ft_normal_and_width_precision_u(length, data);
+		ft_putnbr_unsig_alone(x, data);
+	}
 }
