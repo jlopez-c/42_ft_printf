@@ -50,13 +50,20 @@ void	ft_puthexa(unsigned int x, t_printf *data)
 
 
 	//Este parrafo maneja los menos
-	if (data->minus == 1 && data->width > 0 && (data->zero == 0))
+	if (data->minus == 1 && data->width > 0 && (data->zero == 0 || data->zero == 1) && data->precision == 0)
 		ft_print_minus_hex(x, length, data);
 	//Este parrafo me imprime los zeros
-	else if ((data->zero == 1 || data->precision == 1) && data->minus == 0)
+	else if (data->zero == 1 && data->minus == 0 && data->width_prec == 0 && x != 0)
 		ft_print_zeros_hex(x, length, data);
-	else if (data->zero == 0 && data->width > 0 && data->minus == 0)
+	else if (data->zero == 0 && data->width > 0 && data->minus == 0 && data->precision == 0)
 		ft_print_width_hex(x, length, data);
+	else if (data->width >= 0 && data->width_prec > 0)
+		ft_print_prec_width_hex(x, data);
+	else if (x == 0 && (data->precision == 1 || data->zero == 1) && data->width_prec == 0)
+	{
+		ft_zero_exception_hex(x, data);
+		return ;
+	}
 	else
 		ft_puthexa_alone(x, data);
 }
@@ -67,5 +74,18 @@ void	ft_hexa(t_printf *data)
 
 	x = va_arg(data->args, unsigned int);
 	ft_length_hexa(x, data);
+	if (x < 0 && data->precision == 1 && data->width_prec == 0)
+		data->hex_len--;
+	if (x < 0 && (data->zero == 1 || data->precision == 1) && data->width_prec == 0)
+	{
+		data->counter += write(1, "-", 1);
+		x = -1 * x;
+	}
+	if (x < 0 && data->precision == 1 && data->width_prec > 0)
+	{
+		x = -1 * x;
+		//Activo data->flags2 cuando el  numero es negativo y hay width y precision
+		data->flags2 = 1;
+	}
 	ft_puthexa(x, data);
 }

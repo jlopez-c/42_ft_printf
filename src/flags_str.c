@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlopez-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 19:47:30 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/09/11 19:47:32 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/10/25 19:30:04 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,27 @@ void	ft_print_width_str(char *str, int i, int length, t_printf *data)
 
 void	ft_print_precision(char *str, int i, t_printf *data)
 {
-	//printf("entra aqui");
-	while (data->width > 0)
+	//printf("entra aqui%d", data->ar_len);
+	if (data->width == 0 && data->width_prec > 0)
+		data->width = data->width_prec;
+	if (data->width_prec > data->ar_len)
 	{
-		data->counter += write(1, str + i, 1);
-		i++;
-		data->width--;
+		while (data->ar_len > 0)
+		{
+			data->counter += write(1, str + i, 1);
+			i++;
+			data->ar_len--;
+		}
 	}
+	else
+	{
+		while (data->width > 0)
+		{
+			data->counter += write(1, str + i, 1);
+			i++;
+			data->width--;
+		}
+	}
+	ft_init(data);
+	//data->width_prec = 0;
 }

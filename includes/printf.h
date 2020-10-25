@@ -39,6 +39,7 @@ typedef struct	s_printf
 }               t_printf;
 
 int	    	ft_printf(const char *format, ...);
+void	    ft_init(t_printf *data);
 void        ft_percent(t_printf *data);
 void	    ft_char(t_printf *data);
 void	    ft_str(t_printf *data);
@@ -89,6 +90,10 @@ void        ft_print_width_ptr(int length, t_printf *data);
 void	    ft_print_width_hex(unsigned int x, int length, t_printf *data);
 void	    ft_print_zeros_hex(unsigned int x, int length, t_printf *data);
 void	    ft_print_minus_hex(unsigned int x, int length, t_printf *data);
+void        ft_print_prec_width_hex(unsigned int x, t_printf *data);
+void	    ft_normal_and_width_precision_hex(int length, t_printf *data);
+void        ft_minus_and_width_precision_hex(unsigned int x, int length, t_printf *data);
+void        ft_zero_exception_hex(unsigned int d, t_printf *data);
 
 /*
 ** Flags Unsigned

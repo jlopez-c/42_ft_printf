@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   char_str.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlopez-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 18:58:41 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/08/31 19:24:19 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/10/25 19:09:05 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,19 @@ void		ft_put_str(t_printf *data, char *str)
 		ft_print_minus_str(str, i, length, data);
 	//Cuando hay un . y width > 0
 	else if ((data->width > 0 || data->width == 0) && data->precision == 1)
+	{
+		//printf("HOLiiiii");
 		ft_print_precision(str, i, data);
+	}
+		
 	////Cuando tiene width
-	else if (data->width > 0 && data->minus == 0) 
+	else if (data->width > 0 && data->minus == 0)
+	{
+		//printf("HOLAAAAAA");
 		ft_print_width_str(str, i, length, data);
+		
+	}
+		
 	////Cuando todo va normal
 	else
 	{

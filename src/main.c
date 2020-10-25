@@ -19,6 +19,11 @@ int main()
     int b = 0;
     long long int c;
 
+
+
+//a = printf("%5");
+//b = ft_printf("%5");
+
    // a = ft_printf("Hello W%orld\n");
    // b = printf("Hello World\n");
   
@@ -31,8 +36,8 @@ int main()
  //a =  printf("printf: %u\n", 26);
  //b =  ft_printf("ftprint %u\n", 26);
 
- a =  printf("printf: %.10u\n", 26);
- b =  ft_printf("ftprint %.10u\n", 26);
+ //a =  printf("printf: %.10u\n", 26);
+ //b =  ft_printf("ftprint %.10u\n", 26);
 
 //a = printf("%-7u\n", 33);
 //b = ft_printf("%-7u\n", 33);
@@ -76,6 +81,10 @@ int main()
 
 
 //-------------------COMIENZAAN LOS FLAGSSSS-----------------------//
+
+a = printf("%.7s\n", "hello");
+b = ft_printf("%.7s\n", "hello");
+
 
 //printf("%10s\n", "Hey");
 //ft_printf("%10s\n", "Hey");

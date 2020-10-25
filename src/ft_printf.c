@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/19 18:52:41 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/10/25 19:29:54 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 void	ft_init(t_printf *data)
 {
-    data->counter = 0;
     data->width = 0;
     data->zero = 0;
     data->minus = 0;
@@ -52,18 +51,20 @@ void	ft_conversion(t_printf *data)
     //data->str++;
     if (*data->str == 'c')
         ft_char(data);
-    if (*data->str == 's')
+    else if (*data->str == 's')
         ft_str(data);
-    if (*data->str == 'p')
+    else if (*data->str == 'p')
         ft_ptr(data);
-    if (*data->str == 'd' || *data->str == 'i')
+    else if (*data->str == 'd' || *data->str == 'i')
         ft_digit(data);
-    if (*data->str == 'u')
+    else if (*data->str == 'u')
         ft_unsigned(data);
-    if (*data->str == 'x' || *data->str == 'X')
+    else if (*data->str == 'x' || *data->str == 'X')
         ft_hexa(data);
-    if (*data->str == '%')
+    else if (*data->str == '%')
         ft_percent(data);
+    else
+        NULL ;
 }
 
 void	ft_width(t_printf *data)
@@ -138,6 +139,7 @@ int		ft_printf(const char *format, ...)
 
     va_start(data.args, format);
     data.str = (char *)format;
+    data.counter = 0;
     ft_init(&data);
     while (*data.str)
     {
