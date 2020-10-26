@@ -82,12 +82,15 @@ int main()
 
 //-------------------COMIENZAAN LOS FLAGSSSS-----------------------//
 
-a = printf("%.7s\n", "hello");
-b = ft_printf("%.7s\n", "hello");
+//a = printf("%7");
+//b = ft_printf("%7");
 
 
 //printf("%10s\n", "Hey");
 //ft_printf("%10s\n", "Hey");
+
+a = ("%23s\n", NULL);
+b = ("%23s\n", NULL);
 
  //a = printf("%-8d\n", 42);
  //b = ft_printf("%-8d\n", 42);
@@ -178,8 +181,8 @@ b = ft_printf("%.7s\n", "hello");
 //a = printf("%5.d\n", 0);
 //b = ft_printf("%5.d\n", 0);
 
-    printf("\033[35mlength printf:    %d\n", a);
-    printf("length ft_printf: %d\n", b);
+//    printf("\033[35mlength printf:    %d\n", a);
+//    printf("length ft_printf: %d\n", b);
 
     return (0);
 }
