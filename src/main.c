@@ -89,8 +89,11 @@ int main()
 //printf("%10s\n", "Hey");
 //ft_printf("%10s\n", "Hey");
 
-a = ("%23s\n", NULL);
-b = ("%23s\n", NULL);
+//a = ("%23s\n", NULL);
+//b = ("%23s\n", NULL);
+
+a = printf("%-7.5s\n", "tubular");
+b = ft_printf("%-7.5s\n", "tubular");
 
  //a = printf("%-8d\n", 42);
  //b = ft_printf("%-8d\n", 42);
@@ -181,8 +184,8 @@ b = ("%23s\n", NULL);
 //a = printf("%5.d\n", 0);
 //b = ft_printf("%5.d\n", 0);
 
-//    printf("\033[35mlength printf:    %d\n", a);
-//    printf("length ft_printf: %d\n", b);
+    printf("\033[35mlength printf:    %d\n", a);
+    printf("length ft_printf: %d\n", b);
 
     return (0);
 }

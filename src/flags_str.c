@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 19:47:30 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/25 19:30:04 by user             ###   ########.fr       */
+/*   Updated: 2020/10/27 11:03:35 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	ft_print_minus_str(char *str, int i, int length, t_printf *data)
 		data->counter += write(1, " ", 1);
 		length--;
 	}
-	data->width = 0;
-	data->minus = 0;
+	ft_init(data);
 }
 
 void	ft_print_width_str(char *str, int i, int length, t_printf *data)
@@ -42,7 +41,7 @@ void	ft_print_width_str(char *str, int i, int length, t_printf *data)
 		data->counter += write(1, str + i, 1);
 		i++;
 	}
-	//ft_put_str(data, str);
+	ft_init(data);
 }
 
 void	ft_print_precision(char *str, int i, t_printf *data)
@@ -69,5 +68,67 @@ void	ft_print_precision(char *str, int i, t_printf *data)
 		}
 	}
 	ft_init(data);
-	//data->width_prec = 0;
 }
+
+
+
+
+
+
+
+
+
+
+void	ft_normal_and_width_precision_s(char *str, int length, int i, t_printf *data)
+{
+	//printf("HOLI");
+	while (length > 0)
+	{
+		data->counter += write(1, " ", 1);
+		length--;
+	}
+	if (data->width_prec > data->ar_len)
+		data->width_prec = data->ar_len;
+	while (data->width_prec > 0)
+	{
+		data->counter += write(1, str + i, 1);
+		i++;
+		data->width_prec--;
+	}
+}
+
+void	ft_minus_and_width_precision_s(char *str, int length, int i, t_printf *data)
+{
+	//printf("HOLI");
+	if (data->width_prec > data->ar_len)
+		data->width_prec = data->ar_len;
+    while (data->width_prec > 0)
+		{
+			data->counter += write(1, str + i, 1);
+			i++;
+			data->width_prec--;
+		}
+    while (length > 0)
+	{
+		data->counter += write(1, " ", 1);
+		length--;
+	}
+}
+
+
+void	ft_print_normal_and_dot_prec(char *str, int i, t_printf *data)
+{
+	//printf("HOLI");
+	
+	int length;
+
+	length = data->width - data->ar_len;
+	if (data->width_prec < data->ar_len)
+		length = data->width - data->width_prec;
+	if (data->minus == 1 || (data->minus == 1 && data->zero == 1))
+		ft_minus_and_width_precision_s(str, length, i, data);
+	else
+		ft_normal_and_width_precision_s(str, length, i, data);
+	ft_init(data);
+}
+

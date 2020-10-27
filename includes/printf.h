@@ -78,6 +78,7 @@ void		ft_print_width_c(char c, int length, t_printf *data);
 void	    ft_print_minus_str(char *str, int i, int length, t_printf *data);
 void	    ft_print_width_str(char *str, int i, int length, t_printf *data);
 void	    ft_print_precision(char *str, int i, t_printf *data);
+void	ft_print_normal_and_dot_prec(char *str, int i, t_printf *data);
 
 /*
 ** Flags Ptr

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 18:58:41 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/25 19:09:05 by user             ###   ########.fr       */
+/*   Updated: 2020/10/27 11:18:16 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,18 @@ void		ft_put_str(t_printf *data, char *str)
 	i = 0;
 	length = data->width - data->ar_len;
 	//Cuando hay un minus
-	if (data->width > 0 && data->minus == 1)
+	if (data->width > 0 && data->minus == 1 && data->precision == 0)
 		ft_print_minus_str(str, i, length, data);
-	//Cuando hay un . y width > 0
-	else if (data->width >= 0 && data->precision == 1)
+	//Cuando hay un . y width_prec > 0 pero no hay width normal
+	else if (data->width == 0 && data->precision == 1 && data->width_prec >= 0)
 	{
 		//printf("HOLiiiii");
 		ft_print_precision(str, i, data);
 	}
-		
+	else if (data->width > 0 && data->precision == 1 && data->width_prec > 0)
+		ft_print_normal_and_dot_prec(str, i, data);
 	////Cuando tiene width
-	else if (data->width > 0 && data->minus == 0)
+	else if (data->width > 0 && data->minus == 0 && data->width_prec == 0)
 	{
 		//printf("HOLAAAAAA");
 		ft_print_width_str(str, i, length, data);
