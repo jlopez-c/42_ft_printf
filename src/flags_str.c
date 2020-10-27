@@ -115,7 +115,6 @@ void	ft_minus_and_width_precision_s(char *str, int length, int i, t_printf *data
 	}
 }
 
-
 void	ft_print_normal_and_dot_prec(char *str, int i, t_printf *data)
 {
 	//printf("HOLI");

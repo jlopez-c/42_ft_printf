@@ -60,7 +60,16 @@ void		ft_put_str(t_printf *data, char *str)
 		ft_print_width_str(str, i, length, data);
 		
 	}
-		
+	/*
+	else if(str == 0 && data->width > 0 && data->precision == 1)
+	{
+		while (data->width > 0)
+		{
+			data->counter += write(1, " ", 1);
+			data->width--;
+		}
+	}
+	*/
 	////Cuando todo va normal
 	else
 	{
@@ -79,8 +88,21 @@ void		ft_str(t_printf *data)
 	str = va_arg(data->args, char *);
 	//if (!str)
 	//	return ;
-	if	(str == NULL)
+	if ((str == NULL && data->precision == 1 && data->width_prec == 0))
+	{
+		str = "";
+	 	if(data->width > 0 && data->precision == 1)
+		{
+			while (data->width > 0)
+			{
+				data->counter += write(1, " ", 1);
+				data->width--;
+			}
+		}
+	}
+	else if	(str == NULL)
 		str = "(null)";
+
 	data->ar_len = ft_strlen(str);
 	ft_put_str(data, str);
 }

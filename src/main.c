@@ -92,9 +92,19 @@ int main()
 //a = ("%23s\n", NULL);
 //b = ("%23s\n", NULL);
 
-a = printf("%-7.5s\n", "tubular");
-b = ft_printf("%-7.5s\n", "tubular");
+//a = printf("%-7.5s\n", "tubular");
+//b = ft_printf("%-7.5s\n", "tubular");
 
+
+//printf("----%-2.s", "");
+
+
+a =printf("%.3s\n", "hello");
+b = ft_printf("%.3s\n", "hello");
+
+
+a =printf("%.*s\n", 3, "hello");
+b = ft_printf("%.*s\n", 3, "hello");
  //a = printf("%-8d\n", 42);
  //b = ft_printf("%-8d\n", 42);
 

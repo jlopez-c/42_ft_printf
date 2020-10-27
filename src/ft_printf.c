@@ -93,12 +93,24 @@ int	ft_isdigit2(int c)
 
 void	ft_width(t_printf *data)
 {
-    if (*data->str == '*')
+    if (*data->str == '*' && data->precision == 0)
     {
         data->width = va_arg(data->args, int);
         if (data->width < 0)
         {
             data->width *= -1;
+            data->minus = 1;
+            //x->flags2 = 1;
+            //data->to_type = ' ';
+        }
+        data->str++;
+    }
+    else if (*data->str == '*' && data->precision == 1)
+    {
+        data->width_prec = va_arg(data->args, int);
+        if (data->width_prec < 0)
+        {
+            data->width_prec *= -1;
             data->minus = 1;
             //x->flags2 = 1;
             //data->to_type = ' ';
@@ -120,10 +132,8 @@ void	ft_width(t_printf *data)
 void    ft_precision(t_printf *data)
 {
     if (*data->str == '.')
-    {
         data->precision = 1;
-        data->str++;
-    }
+     data->str++;
 }
 
 void	ft_options(t_printf *data)
@@ -138,6 +148,8 @@ void	ft_options(t_printf *data)
     if (*data->str  == '.')
     	ft_precision(data);
     if ((*data->str  == '*' || ft_isdigit2(*data->str)) && data->precision == 0 )
+        ft_width(data);
+    if (*data->str  == '*' && data->precision == 1)
         ft_width(data);
     if  (*data->str == '.' || data->precision == 1)
         ft_take_precision(data);

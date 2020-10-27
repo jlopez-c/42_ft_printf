@@ -41,8 +41,8 @@ void    ft_putptr(unsigned long int ptr, t_printf *data)
 
     ptr_hex_val = ptr;
     //Esta length tiene un parche muy serio que peude dar problemas
-    length = data->width - data->ar_len - 4;
-
+    //length = data->width - data->ar_len - 4;
+    length = data->width - data->ar_len - 2;
 	////Cuando tiene width
 	if (data->width > 0 && data->minus == 0) 
     {
@@ -64,6 +64,38 @@ void    ft_putptr(unsigned long int ptr, t_printf *data)
     }
 }
 
+
+void    ft_null_ptr(t_printf *data)
+{
+    if (data->width >= 0 && data->precision == 0)
+        {
+            while ((data->width - 3) > 0)
+            {
+                data->counter += write(1, " ", 1);
+                data->width--;
+            }
+            data->counter += write(1, "0x0", 3);
+        }
+    else
+        {
+            while ((data->width - 2) > 0)
+            {
+                data->counter += write(1, " ", 1);
+                data->width--;
+            }
+            data->counter += write(1, "0x", 2);
+            if (data->width_prec > 0)
+            {
+                while (data->width_prec > 0)
+                {
+                    data->counter += write(1, "0", 1);
+                    data->width_prec--;
+                }
+            }
+            
+        }
+}
+
 void	ft_ptr(t_printf *data)
 {
 	unsigned long int ptr;
@@ -71,7 +103,7 @@ void	ft_ptr(t_printf *data)
 	ptr = va_arg(data->args, unsigned long int);
     if (!ptr)
     {
-        data->counter += write(1, "0x0", 3);
+        ft_null_ptr(data);
         return ;
     }
     data->ar_len = ft_strlen(ft_itoa(ptr));

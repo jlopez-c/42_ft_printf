@@ -20,5 +20,6 @@ void ft_print_width_ptr(int length, t_printf *data)
 		data->counter += write(1, " ", 1);
 		length--;
 	}
-	data->width = 0;
+	//data->width = 0;
+	ft_init(data);
 }
