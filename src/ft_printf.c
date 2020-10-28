@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/25 19:29:54 by user             ###   ########.fr       */
+/*   Updated: 2020/10/28 08:13:29 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	ft_init(t_printf *data)
     data->zero = 0;
     data->minus = 0;
     data->precision = 0;
-    //data->to_type = ' ';
     data->ar_len = 0;
     data->hex_len = 0;
     data->unsigned_len = 0;
@@ -48,23 +47,17 @@ void	ft_flags(t_printf *data)
     if (*data->str == '-')
     {
         data->minus = 1;
-        //data->to_type = ' ';
-        //x->flags2 = 1;
         data->str++;
     }
     if (*data->str == '0')
     {
         data->zero = 1;
-        //data->to_type = '0';
-        //x->flags2 = -1;
         data->str++;
     }
 }
 
 void	ft_conversion(t_printf *data)
 {
-    //printf("EstAS AQQUI");
-    //data->str++;
     if (*data->str == 'c')
         ft_char(data);
     else if (*data->str == 's')
@@ -83,7 +76,6 @@ void	ft_conversion(t_printf *data)
 
 int	ft_isdigit2(int c)
 {
-    //printf("---%d", c);
 	if (c >= '0' && c <= '9')
 	{
 		return (1);
@@ -100,8 +92,6 @@ void	ft_width(t_printf *data)
         {
             data->width *= -1;
             data->minus = 1;
-            //x->flags2 = 1;
-            //data->to_type = ' ';
         }
         data->str++;
     }
@@ -112,8 +102,6 @@ void	ft_width(t_printf *data)
         {
             data->width_prec *= -1;
             data->minus = 1;
-            //x->flags2 = 1;
-            //data->to_type = ' ';
         }
         data->str++;
     }
@@ -123,7 +111,6 @@ void	ft_width(t_printf *data)
 
         while (*data->str != '\0' && ft_isdigit2(*data->str))
         { 
-            //ft_state_flags(data);
             data->str++;
         }         
     }
@@ -140,27 +127,23 @@ void	ft_options(t_printf *data)
 {
     data->str++;
     data->repeat = 1;
-
     if (*data->str  == '0')
       ft_flags(data);
     if (*data->str == '-')
         ft_flags(data);
     if (*data->str  == '.')
     	ft_precision(data);
-    if ((*data->str  == '*' || ft_isdigit2(*data->str)) && data->precision == 0 )
+    if ((*data->str  == '*' || ft_isdigit2(*data->str)) && data->precision == 0)
         ft_width(data);
     if (*data->str  == '*' && data->precision == 1)
         ft_width(data);
     if  (*data->str == '.' || data->precision == 1)
         ft_take_precision(data);
-   //if (*data->str  == '\0')
-        //printf("ototototot: %c1111111", *data->str);
-   // conseguir o controlar que no se meta a ft conversion unicamente si no ha llegado al finall, puede haber espacios u otro tipo de chars
-   if (*data->str  == 'c' ||  *data->str  == 's' || *data->str  == 'x' || *data->str  == 'X' || *data->str  == 'd' || *data->str  == 'i' || *data->str  == 'u' || *data->str  == 'p' || *data->str  == '%') 
+    if (*data->str  == 'c' ||  *data->str  == 's' || *data->str  == 'x' ||
+    *data->str  == 'X' || *data->str  == 'd' || *data->str  == 'i' ||
+    *data->str  == 'u' || *data->str  == 'p' || *data->str  == '%') 
        ft_conversion(data);
 }
-
-
 
 int		ft_printf(const char *format, ...)
 {
@@ -170,7 +153,6 @@ int		ft_printf(const char *format, ...)
     data.str = (char *)format;
     data.counter = 0;
     ft_init(&data);
-    
     while (*data.str != '\0')
     {
         if (*data.str == '%')

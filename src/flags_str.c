@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 19:47:30 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/27 11:03:35 by user             ###   ########.fr       */
+/*   Updated: 2020/10/28 08:14:51 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	ft_print_width_str(char *str, int i, int length, t_printf *data)
 
 void	ft_print_precision(char *str, int i, t_printf *data)
 {
-	//printf("entra aqui%d", data->ar_len);
 	if (data->width == 0 && data->width_prec > 0)
 		data->width = data->width_prec;
 	if (data->width_prec > data->ar_len)
@@ -81,7 +80,6 @@ void	ft_print_precision(char *str, int i, t_printf *data)
 
 void	ft_normal_and_width_precision_s(char *str, int length, int i, t_printf *data)
 {
-	//printf("HOLI");
 	while (length > 0)
 	{
 		data->counter += write(1, " ", 1);
@@ -99,7 +97,6 @@ void	ft_normal_and_width_precision_s(char *str, int length, int i, t_printf *dat
 
 void	ft_minus_and_width_precision_s(char *str, int length, int i, t_printf *data)
 {
-	//printf("HOLI");
 	if (data->width_prec > data->ar_len)
 		data->width_prec = data->ar_len;
     while (data->width_prec > 0)
@@ -117,8 +114,6 @@ void	ft_minus_and_width_precision_s(char *str, int length, int i, t_printf *data
 
 void	ft_print_normal_and_dot_prec(char *str, int i, t_printf *data)
 {
-	//printf("HOLI");
-	
 	int length;
 
 	length = data->width - data->ar_len;

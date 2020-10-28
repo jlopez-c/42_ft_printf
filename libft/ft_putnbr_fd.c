@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "../includes/printf.h"
 
-void	ft_putnbr_fd(int n, int fd, t_printf *data)
+void	ft_putnbr_fd(int n, int fd)
 {
 	int	x;
 	int count;
@@ -21,20 +21,20 @@ void	ft_putnbr_fd(int n, int fd, t_printf *data)
 	x = n;
 	if (n < 0)
 	{
-		data->counter += write(1, "-", 1);
+		write(1, "-", 1);
 		if (n == -2147483648)
 		{
-			data->counter += write(1, "2", 1);
+			write(1, "2", 1);
 			x = -147483648;
 		}
 		x = -1 * x;
 	}
 	if (x >= 10)
 	{
-		ft_putnbr_fd((x / 10), fd, data);
+		ft_putnbr_fd((x / 10), fd);
 	}
 	count = (x % 10) + 48;
-	data->counter += write(1, &count, 1);
+	write(1, &count, 1);
 }
 
 
