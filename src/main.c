@@ -18,7 +18,7 @@ int main()
     int a = 0;
     int b = 0;
     long long int c;
-
+    char *  str = "Hi low";
 
 
 //a = printf("%5");
@@ -99,12 +99,24 @@ int main()
 //printf("----%-2.s", "");
 
 
-a =printf("%.3s\n", "hello");
-b = ft_printf("%.3s\n", "hello");
+//a =printf("%.3s\n", "hello");
+//b = ft_printf("%.3s\n", "hello");
 
 
-a =printf("%.*s\n", 3, "hello");
-b = ft_printf("%.*s\n", 3, "hello");
+//a =printf("%.*s\n", 3, "hello");
+//b = ft_printf("%.*s\n", 3, "hello");
+
+//a =printf("%-8.s\n",  str);
+//b = ft_printf("%-8.s\n", str);
+
+//a =printf("%09s\n", str);
+//b = ft_printf("%09s\n", str);
+
+
+
+a =printf("%00-s\n", str);
+b = ft_printf("%00-s\n", str);
+
  //a = printf("%-8d\n", 42);
  //b = ft_printf("%-8d\n", 42);
 
@@ -193,6 +205,16 @@ b = ft_printf("%.*s\n", 3, "hello");
 //
 //a = printf("%5.d\n", 0);
 //b = ft_printf("%5.d\n", 0);
+
+
+
+
+/*
+*
+*
+*
+*
+*/
 
     printf("\033[35mlength printf:    %d\n", a);
     printf("length ft_printf: %d\n", b);

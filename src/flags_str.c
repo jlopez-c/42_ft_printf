@@ -30,10 +30,22 @@ void	ft_print_minus_str(char *str, int i, int length, t_printf *data)
 
 void	ft_print_width_str(char *str, int i, int length, t_printf *data)
 {
-	while (length > 0)
+	//printf("HOLA");
+	if (data->zero == 1)
 	{
-		data->counter += write(1, " ", 1);
-		length--;
+		while (length > 0)
+		{
+			data->counter += write(1, "0", 1);
+			length--;
+		}
+	}
+	else
+	{
+		while (length > 0)
+		{
+			data->counter += write(1, " ", 1);
+			length--;
+		}
 	}
 	data->width = 0;
 	while (str[i])

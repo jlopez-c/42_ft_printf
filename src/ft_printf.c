@@ -14,7 +14,8 @@
 #include "../includes/printf.h"
 void      ft_state_flags(t_printf *data)
 {
-   // printf("\n\nEsto es el estado de counter %s \n", data->str);
+    printf("\n\nAqui es por donde voy %c \n", *data->str);
+    printf("\n\nEste es mi input %s \n", data->str);
 	printf("\n\nEsto es el estado de counter %d \n", data->counter);			
     printf("Esto es el estado de width %d \n", data->width);
     printf("Esto es el estado de zero %d \n", data->zero);
@@ -49,7 +50,7 @@ void	ft_flags(t_printf *data)
         data->minus = 1;
         data->str++;
     }
-    if (*data->str == '0')
+    while (*data->str == '0')
     {
         data->zero = 1;
         data->str++;
@@ -127,8 +128,10 @@ void	ft_options(t_printf *data)
 {
     data->str++;
     data->repeat = 1;
+   
     if (*data->str  == '0')
       ft_flags(data);
+    //ft_state_flags(data);
     if (*data->str == '-')
         ft_flags(data);
     if (*data->str  == '.')

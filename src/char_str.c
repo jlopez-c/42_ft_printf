@@ -59,11 +59,24 @@ void		ft_put_str(t_printf *data, char *str)
 	}
 }
 
+void		ft_exception_str(t_printf *data)
+{
+	if (data->width > 0 && data->precision == 1 && data->width_prec == 0)
+	{
+		while (data->width > 0)
+		{
+			data->counter += write(1, " ", 1);
+			data->width--;
+		}
+	}
+}
+
 void		ft_str(t_printf *data)
 {
 	char	*str;
 
 	str = va_arg(data->args, char *);
+	ft_exception_str(data);
 	if ((str == 0 && data->precision == 1 && data->width_prec == 0 && data->minus >= 0))
 	{
 		str = "";
@@ -79,5 +92,6 @@ void		ft_str(t_printf *data)
 	else if	(str == NULL)
 		str = "(null)";
 	data->ar_len = ft_strlen(str);
+
 	ft_put_str(data, str);
 }
