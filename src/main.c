@@ -17,8 +17,8 @@ int main()
 {
     int a = 0;
     int b = 0;
-    long long int c;
-    char *  str = "Hi low";
+  //  long long int c;
+  //  char *  str = "Hi low";
 
 
 //a = printf("%5");
@@ -113,9 +113,32 @@ int main()
 //b = ft_printf("%09s\n", str);
 
 
+a =printf("%.*i\n", -6, -345);
+b = ft_printf("%.*i\n", -6, -345);
 
-a =printf("%00-s\n", str);
-b = ft_printf("%00-s\n", str);
+//a =printf("%-*.*s\n", -7, -3, "yolo\n");
+//b = ft_printf("%-*.*s\n", -7, -3, "yolo\n");
+
+//a =printf("%.*s\n", 3, "yolo\n"); //OK
+//b = ft_printf("%.*s\n", 3, "yolo\n");
+
+//a =printf("%.*s\n", 7, "yolo\n"); //OK
+//b = ft_printf("%.*s\n", 7, "yolo\n");
+//
+//a =printf("%-*.s\n", 7, "yolo\n"); //OOOOKKK
+//b = ft_printf("%-*.s\n", 7, "yolo\n");
+//
+//a =printf("%*s\n", 7, "yolo\n");
+//b = ft_printf("%*s\n", 7, "yolo\n");
+
+//a = printf("%.*s\n", -3, "hello"); //OKKKKK
+//b = ft_printf("%.*s\n", -3, "hello");
+//
+//a =printf("%*.*s\n", 7, 3, "yolo\n");
+//b = ft_printf("%*.*s\n", 7, 3, "yolo\n");
+
+//a =printf("%00-s\n", str);
+//b = ft_printf("%00-s\n", str);
 
  //a = printf("%-8d\n", 42);
  //b = ft_printf("%-8d\n", 42);

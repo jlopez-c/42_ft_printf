@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   char_str.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 18:58:41 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/28 08:00:00 by user             ###   ########.fr       */
+/*   Updated: 2020/11/02 18:51:58 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,13 @@ void		ft_put_str(t_printf *data, char *str)
 		ft_print_minus_str(str, i, length, data);
 	else if (data->width == 0 && data->precision == 1 && data->width_prec >= 0)
 		ft_print_precision(str, i, data);
-	else if (data->width > 0 && data->precision == 1 && data->width_prec > 0)
+	else if (data->width > 0 && data->precision == 1 && (data->width_prec > 0 || data->width_prec < 0))
 		ft_print_normal_and_dot_prec(str, i, data);
 	else if (data->width > 0 && data->minus == 0 && data->width_prec == 0)
 		ft_print_width_str(str, i, length, data);
 	else
 	{
+		//printf("HOLA");
 		while (str[i])
 		{
 			data->counter += write(1, str + i, 1);

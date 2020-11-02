@@ -27,7 +27,6 @@ typedef struct	s_printf
     int         zero;
     int         minus;
     int         precision;
-    //char        to_type;
     int         ar_len;
     int         hex_len;
     int         unsigned_len;
@@ -55,6 +54,11 @@ void	    ft_puthexa_alone(unsigned int x, t_printf *data);
 void        ft_ptr(t_printf *data);
 void        ft_take_precision(t_printf *data);
 
+
+
+void      ft_state_flags(t_printf *data);
+
+
 /* 
 ** Flags Digit
 */
@@ -78,7 +82,7 @@ void		ft_print_width_c(char c, int length, t_printf *data);
 void	    ft_print_minus_str(char *str, int i, int length, t_printf *data);
 void	    ft_print_width_str(char *str, int i, int length, t_printf *data);
 void	    ft_print_precision(char *str, int i, t_printf *data);
-void	ft_print_normal_and_dot_prec(char *str, int i, t_printf *data);
+void	    ft_print_normal_and_dot_prec(char *str, int i, t_printf *data);
 
 /*
 ** Flags Ptr

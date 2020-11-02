@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 19:47:30 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/28 08:14:51 by user             ###   ########.fr       */
+/*   Updated: 2020/11/02 18:52:20 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_print_minus_str(char *str, int i, int length, t_printf *data)
 
 void	ft_print_width_str(char *str, int i, int length, t_printf *data)
 {
-	//printf("HOLA");
 	if (data->zero == 1)
 	{
 		while (length > 0)
@@ -105,6 +104,7 @@ void	ft_normal_and_width_precision_s(char *str, int length, int i, t_printf *dat
 		i++;
 		data->width_prec--;
 	}
+	ft_init(data);
 }
 
 void	ft_minus_and_width_precision_s(char *str, int length, int i, t_printf *data)
@@ -122,6 +122,19 @@ void	ft_minus_and_width_precision_s(char *str, int length, int i, t_printf *data
 		data->counter += write(1, " ", 1);
 		length--;
 	}
+	ft_init(data);
+}
+
+void	ft_negative_prec(char *str, int i, t_printf *data)
+{
+	//data->width_prec *= -1;
+	while (data->ar_len > 0)
+		{
+			data->counter += write(1, str + i, 1);
+			i++;
+			data->ar_len--;
+		}
+	ft_init(data);
 }
 
 void	ft_print_normal_and_dot_prec(char *str, int i, t_printf *data)
@@ -129,6 +142,8 @@ void	ft_print_normal_and_dot_prec(char *str, int i, t_printf *data)
 	int length;
 
 	length = data->width - data->ar_len;
+	if (data->width_prec < 0)
+		ft_negative_prec(str, i, data);
 	if (data->width_prec < data->ar_len)
 		length = data->width - data->width_prec;
 	if (data->minus == 1 || (data->minus == 1 && data->zero == 1))

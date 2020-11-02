@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 19:12:09 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/19 10:56:25 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/02 19:29:18 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,33 @@ void	ft_putnbr(int n, t_printf *data)
 		ft_putnbr_alone(x, data);
 }
 
+void	ft_star_exception(int d, t_printf *data)
+{
+	int count;
+
+	if (d < 0)
+	{
+		data->counter += write(1, "-", 1);
+		d *= -1;
+	}
+	if (d >= 10)
+		ft_star_exception((d / 10), data);
+	count = (d % 10) + 48;
+	data->counter += write(1, &count, 1);
+	ft_init(data);
+}
+
 void	ft_digit(t_printf *data)
 {
 	int d;
 
 	d = va_arg(data->args, int);
 	data->ar_len = ft_strlen((ft_itoa(d)));
-	
+	if (data->width_prec < 0 && d < 0 && data->minus == 1)
+	{
+		ft_star_exception(d, data);
+		return ;
+	}
 	if (d < 0 && data->precision == 1 && data->width_prec == 0)
 		data->ar_len--;
 	if (d < 0 && (data->zero == 1 || data->precision == 1) && data->width_prec == 0)

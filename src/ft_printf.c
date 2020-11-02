@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/28 08:13:29 by user             ###   ########.fr       */
+/*   Updated: 2020/11/02 18:51:29 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	ft_width(t_printf *data)
         data->width_prec = va_arg(data->args, int);
         if (data->width_prec < 0)
         {
-            data->width_prec *= -1;
+            //data->width_prec *= -1;
             data->minus = 1;
         }
         data->str++;
@@ -128,23 +128,21 @@ void	ft_options(t_printf *data)
 {
     data->str++;
     data->repeat = 1;
-   
     if (*data->str  == '0')
       ft_flags(data);
-    //ft_state_flags(data);
     if (*data->str == '-')
         ft_flags(data);
     if (*data->str  == '.')
     	ft_precision(data);
     if ((*data->str  == '*' || ft_isdigit2(*data->str)) && data->precision == 0)
         ft_width(data);
-    if (*data->str  == '*' && data->precision == 1)
-        ft_width(data);
     if  (*data->str == '.' || data->precision == 1)
         ft_take_precision(data);
+    if (*data->str  == '*' && data->precision == 1)
+        ft_width(data);
     if (*data->str  == 'c' ||  *data->str  == 's' || *data->str  == 'x' ||
     *data->str  == 'X' || *data->str  == 'd' || *data->str  == 'i' ||
-    *data->str  == 'u' || *data->str  == 'p' || *data->str  == '%') 
+    *data->str  == 'u' || *data->str  == 'p' || *data->str  == '%')
        ft_conversion(data);
 }
 
