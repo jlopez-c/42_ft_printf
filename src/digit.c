@@ -6,35 +6,31 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 19:12:09 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/02 19:29:18 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/03 11:12:23 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
-void	ft_putnbr_alone(int n, t_printf *data)
+void	ft_putnbr_alone(int x, t_printf *data)
 {
-	int x;
 	int count;
 
-	x  = n;
-	if (n < 0 && data->zero == 0 && data->precision == 0)
+	if (x < 0)
+	{
+		data->counter += write(1, "-", 1);
+		if (x == -2147483648)
 		{
-			data->counter += write(1, "-", 1);
-			if (n == -2147483648)
-			{
-				data->counter += write(1, "2", 1);
-				x = -147483648;
-			}
-			x = -1 * x;
+			data->counter += write(1, "2", 1);
+			x = -147483648;
 		}
-		if (x >= 10)
-		{
-			ft_putnbr_alone((x / 10), data);
-		}
-		count = (x % 10) + 48;
-		data->counter += write(1, &count, 1);
+		x = -1 * x;
+	}
+	if (x >= 10)
+		ft_putnbr_alone((x / 10), data);
+	count = (x % 10) + 48;
+	data->counter += write(1, &count, 1);
 }
 
 void	ft_putnbr(int n, t_printf *data)
@@ -62,6 +58,7 @@ void	ft_putnbr(int n, t_printf *data)
 	}
 	else
 		ft_putnbr_alone(x, data);
+	ft_init(data);
 }
 
 void	ft_star_exception(int d, t_printf *data)
@@ -71,6 +68,11 @@ void	ft_star_exception(int d, t_printf *data)
 	if (d < 0)
 	{
 		data->counter += write(1, "-", 1);
+		if (d == -2147483648)
+		{
+			data->counter += write(1, "2", 1);
+			d = -147483648;
+		}
 		d *= -1;
 	}
 	if (d >= 10)
@@ -86,14 +88,20 @@ void	ft_digit(t_printf *data)
 
 	d = va_arg(data->args, int);
 	data->ar_len = ft_strlen((ft_itoa(d)));
-	if (data->width_prec < 0 && d < 0 && data->minus == 1)
+	if (data->width_prec < 0 && d < 0)
 	{
 		ft_star_exception(d, data);
 		return ;
 	}
+	if (d == 0 && data->zero == 1 && data->precision == 0 && data->width == 0)
+	{
+		data->counter += write(1, "0", 1);
+		return ;
+	}
 	if (d < 0 && data->precision == 1 && data->width_prec == 0)
 		data->ar_len--;
-	if (d < 0 && (data->zero == 1 || data->precision == 1) && data->width_prec == 0)
+	if (d < 0 && (data->zero == 1 || data->precision == 1) && data->width_prec == 0 &&
+		d != -2147483648)
 	{
 		data->counter += write(1, "-", 1);
 		d = -1 * d;
@@ -105,4 +113,5 @@ void	ft_digit(t_printf *data)
 		data->flags2 = 1;
 	}
 	ft_putnbr(d, data);
+	ft_init(data);
 }

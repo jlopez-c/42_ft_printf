@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 19:11:11 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/02 18:55:32 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/03 09:57:16 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	ft_print_zeros(int x, int length, t_printf *data)
 			data->counter += write(1, "0", 1);
 			length--;
 		}
-		data->zero = 0;
-		data->precision = 0;
-		data->width = 0;
+	ft_init(data);
 	ft_putnbr_alone(x, data);
 }
 
@@ -33,8 +31,7 @@ void	ft_print_width(int x, int length, t_printf *data)
 			data->counter += write(1, " ", 1);
 			length--;
 		}
-		data->zero = 0;
-		data->width = 0;
+		ft_init(data);
 		ft_putnbr_alone(x, data);
 }
 
@@ -46,9 +43,7 @@ void	ft_print_minus(int x, int length, t_printf *data)
 		data->counter += write(1, " ", 1);
 		length--;
 	}
-	data->zero = 0;
-	data->minus = 0;
-	data->width = 0;
+	ft_init(data);
 }
 
 //Esta funcion para cuando hay precision y width por ejemplo """"printf("%8.5d\n", 34);""""
@@ -65,7 +60,8 @@ void	ft_print_prec_width(int x, t_printf *data)
 		ft_minus_and_width_precision(x, length, data);
 	else
 	{
-		ft_normal_and_width_precision(length, data);
+		ft_normal_and_width_precision(x, length, data);
 		ft_putnbr_alone(x, data);
 	}
+	ft_init(data);
 }

@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:41:04 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/19 18:53:22 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/03 10:04:01 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void ft_take_precision(t_printf *data)
         }
 }
 
-void	ft_normal_and_width_precision(int length, t_printf *data)
+void	ft_normal_and_width_precision(int x, int length, t_printf *data)
 {
 	while (length > 0)
 	{
@@ -39,7 +39,8 @@ void	ft_normal_and_width_precision(int length, t_printf *data)
 	length = 0;
 	if (data->flags2 == 1)
 	{
-		data->counter += write(1, "-", 1);
+		if ( x != -2147483648)
+			data->counter += write(1, "-", 1);
 		data->ar_len--;
 		while ((data->width_prec - data->ar_len + length) > 0)
 		{
@@ -55,6 +56,7 @@ void	ft_normal_and_width_precision(int length, t_printf *data)
 			length--;
 		}
 	}
+	ft_init(data);
 }
 
 void	ft_minus_and_width_precision(int x, int length, t_printf *data)
@@ -65,7 +67,8 @@ void	ft_minus_and_width_precision(int x, int length, t_printf *data)
 	length = 0;
 	if (data->flags2 == 1)
 	{
-		data->counter += write(1, "-", 1);
+		if ( x != -2147483648)
+			data->counter += write(1, "-", 1);
 		data->ar_len--;
 		while ((data->width_prec - data->ar_len + length) > 0)
 		{
@@ -87,6 +90,7 @@ void	ft_minus_and_width_precision(int x, int length, t_printf *data)
 		data->counter += write(1, " ", 1);
 		copy--;
 	}
+	ft_init(data);
 }
 
 void	ft_zero_exception(int d, t_printf *data)
@@ -109,4 +113,5 @@ void	ft_zero_exception(int d, t_printf *data)
 	}
 	if (d == 0 && data->width_prec == 0 && data->minus == 0)
 		return ;
+	ft_init(data);
 }
