@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 19:12:09 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/03 11:12:23 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/04 11:27:30 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	ft_putnbr_alone(int x, t_printf *data)
 
 void	ft_putnbr(int n, t_printf *data)
 {
+
+	//ft_state_flags(data);
 	int	x;
 	int length;
 
@@ -49,7 +51,9 @@ void	ft_putnbr(int n, t_printf *data)
 	//Este parrafo maneja los menos
 	else if (data->minus == 1 && data->width > 0 && (data->zero == 0 || data->zero == 1) && data->precision == 0)
 		ft_print_minus(x, length, data);
-	else if (data->width >= 0 && data->width_prec > 0)
+	else if (data->width >= 0 && data->width_prec != 0)
+		ft_print_prec_width(x, data);
+	else if( data->width > 0 && data->width_prec == 0 && data->precision == 1 && x != 0)
 		ft_print_prec_width(x, data);
 	else if (n == 0 && (data->precision == 1 || data->zero == 1) && data->width_prec == 0)
 	{
