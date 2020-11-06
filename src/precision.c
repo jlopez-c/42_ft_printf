@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:41:04 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/03 10:04:01 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/06 16:38:27 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	ft_minus_and_width_precision(int x, int length, t_printf *data)
 
 void	ft_zero_exception(int d, t_printf *data)
 {
-	if (d == 0 && data->width > 0 && (data->minus == 1 || data->zero == 0) && data->width_prec == 0)
+	if (d == 0 && data->width > 0 && (data->minus == 1 || data->zero == 0 || data->precision == 1) && data->width_prec == 0)
 	{
 		while (data->width)
 		{
@@ -105,6 +105,7 @@ void	ft_zero_exception(int d, t_printf *data)
 	}
 	if (data->width > 0 && (data->precision == 1 || data->zero == 1) && d == 0 && data->minus == 0)
 	{
+		//printf("------%d", data->width);
 		while (data->width)
 		{
 			data->counter += write(1, "0", 1);

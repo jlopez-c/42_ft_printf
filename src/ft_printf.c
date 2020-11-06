@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/03 11:04:27 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/06 16:46:34 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_init(t_printf *data)
 
 void	ft_flags(t_printf *data)
 {
-    if (*data->str == '-')
+    while (*data->str == '-')
     {
         data->minus = 1;
         data->str++;
