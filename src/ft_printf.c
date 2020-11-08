@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/06 16:46:34 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/08 14:24:37 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	ft_flags(t_printf *data)
 {
     while (*data->str == '-')
     {
+        data->repeat = 1;
         data->minus = 1;
         data->str++;
     }
@@ -91,6 +92,7 @@ void	ft_width(t_printf *data)
         data->width = va_arg(data->args, int);
         if (data->width < 0)
         {
+            data->flags2 = -1;
             data->width *= -1;
             data->minus = 1;
         }
@@ -101,7 +103,7 @@ void	ft_width(t_printf *data)
         data->width_prec = va_arg(data->args, int);
         if (data->width_prec < 0)
         {
-            //data->width_prec *= -1;
+            //data->flags2 = -2;
             data->minus = 1;
         }
         data->str++;

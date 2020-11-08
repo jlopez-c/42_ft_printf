@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 19:12:09 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/06 16:33:21 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/08 14:29:38 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,26 @@ void	ft_putnbr_alone(int x, t_printf *data)
 
 void	ft_putnbr(int n, t_printf *data)
 {
-
 	//ft_state_flags(data);
 	int	x;
 	int length;
 
 	x = n;
 	length = data->width - (data->ar_len);
+
+	if (data->width_prec < 0 && data->zero == 1 && data->minus == 1 && data->flags2 != -1)
+		ft_print_zeros(x, length, data);
 	//Este parrafo me imprime los zeros
-	if (data->zero == 1 && data->minus == 0 && data->width_prec == 0 && n != 0)
+	else if (data->zero == 1 && data->minus == 0 && data->width_prec == 0 && n != 0)
 		ft_print_zeros(x, length, data);
 	//Este parrafor me imprime los espacios
+	else if (data->width_prec < 0 && data->zero == 0 && data->minus == 1 && data->flags2 != -1 && data->repeat != 1)
+		ft_print_width(x, length, data);
 	else if (data->zero == 0 && data->width > 0 && data->minus == 0 && data->precision == 0)
 		ft_print_width(x, length, data);
 	//Este parrafo maneja los menos
+	else if (data->width_prec < 0 && data->zero == 0 && data->minus == 1 && data->repeat == 1)
+		ft_print_minus(x, length, data);
 	else if (data->minus == 1 && data->width > 0 && (data->zero == 0 || data->zero == 1) && data->precision == 0)
 		ft_print_minus(x, length, data);
 	else if (data->width >= 0 && data->width_prec != 0)
