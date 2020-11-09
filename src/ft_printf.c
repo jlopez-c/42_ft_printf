@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/08 14:24:37 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/09 11:11:00 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void      ft_state_flags(t_printf *data)
     printf("Esto es el estado de unsigned_len %d \n", data->unsigned_len);
     printf("Esto es el estado de width_prec %d \n", data->width_prec);
     printf("Esto es el estado de flags2 %d \n", data->flags2);
-  //  printf("Esto es el estado de repeat %d \n\n\n", data->repeat);
+    printf("Esto es el estado de repeat %d \n\n\n", data->repeat);
 }
 
 void	ft_init(t_printf *data)
@@ -129,7 +129,7 @@ void    ft_precision(t_printf *data)
 void	ft_options(t_printf *data)
 {
     data->str++;
-    data->repeat = 1;
+    //data->repeat = 1;
     if (*data->str  == '0')
       ft_flags(data);
     if (*data->str == '-')
