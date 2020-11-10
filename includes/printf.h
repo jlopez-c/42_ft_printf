@@ -33,10 +33,14 @@ typedef struct	s_printf
     int         width_prec;
     int         flags2;
     int         repeat;
+    //int         star;
     va_list     args;
 	
 }               t_printf;
 
+/* 
+** General Functions
+*/
 int	    	ft_printf(const char *format, ...);
 void	    ft_init(t_printf *data);
 void        ft_percent(t_printf *data);

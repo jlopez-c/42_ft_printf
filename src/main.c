@@ -359,7 +359,7 @@ int main()
 
 */
 
-a = 3;
+a = 4;
 b = 0;
 
 printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
@@ -371,8 +371,8 @@ ft_printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d\n\n", 
 printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
 ft_printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
 
-
-
+//printf("%0*.*i\n", 4, -2, -12);
+//ft_printf("%0*.*i\n", 4, -2, -12);
 /*
 printf("%2s, %2s, %2s, %2s, %2s\n", n, o, p, q, r); //T181
 ft_printf("%2s, %2s, %2s, %2s, %2s\n\n", n, o, p, q, r); //T181

@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 19:11:11 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/04 11:00:31 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:34:45 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,18 @@
 
 void	ft_print_zeros(int x, int length, t_printf *data)
 {
+	if (x < 0 && data->precision == 1 && data->width_prec <= 0 &&
+	data->zero == 1 && data->minus == 1 && data->flags2 != -1 &&
+	data->width_prec < data->width && x != -2147483648) 
+	{
+		data->counter += write(1, "-", 1);
+		x = x * -1;
+	}
 	while (length > 0)
-		{
-			data->counter += write(1, "0", 1);
-			length--;
-		}
+	{
+		data->counter += write(1, "0", 1);
+		length--;
+	}
 	ft_init(data);
 	ft_putnbr_alone(x, data);
 }

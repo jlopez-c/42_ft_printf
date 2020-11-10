@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 19:12:09 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/09 11:39:47 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:48:08 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ void	ft_putnbr(int n, t_printf *data)
 	length = data->width - (data->ar_len);
 
 	if (data->width_prec < 0 && data->zero == 1 && data->minus == 1 && data->flags2 != -1)
-		ft_print_zeros(x, length, data);
+	{
+		//printf("ENTRA AQUIIII__________");
+				ft_print_zeros(x, length, data);
+	}
+
 	//Este parrafo me imprime los zeros
 	else if (data->zero == 1 && data->minus == 0 && data->precision == 0 && n != 0)
 		ft_print_zeros(x, length, data);
@@ -99,20 +103,21 @@ void	ft_digit(t_printf *data)
 	d = va_arg(data->args, int);
 	data->ar_len = ft_strlen((ft_itoa(d)));
 	//ft_state_flags(data);
-	if (data->width_prec < 0 && d < 0)
+	//if (d < 0 && data->precision == 1 && data->width_prec == 0)
+	//	data->ar_len--;
+	if (data->precision == 1 && data->width_prec == 0 && d < 0)
 	{
 		ft_star_exception(d, data);
 		return ;
 	}
-	if (d == 0 && data->zero == 1 && data->precision == 0 && data->width == 0)
+	if (d == 0 && data->zero == 1 && data->precision == 0 &&
+	data->width == 0)
 	{
 		data->counter += write(1, "0", 1);
 		return ;
 	}
-	if (d < 0 && data->precision == 1 && data->width_prec == 0)
-		data->ar_len--;
-	if (d < 0 && (data->zero == 1 || data->precision == 1) && data->width_prec == 0 &&
-		d != -2147483648)
+	if (d < 0 && (data->zero == 1 || data->precision == 1) &&
+	data->width_prec == 0 && d != -2147483648)
 	{
 		data->counter += write(1, "-", 1);
 		d = -1 * d;

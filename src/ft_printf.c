@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/09 11:11:00 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/10 17:59:16 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ft_init(t_printf *data)
     data->width_prec = 0;
     data->flags2 = 0;
     data->repeat = 0;
+    //data->star = 0;
 }
 
 void	ft_flags(t_printf *data)
@@ -89,6 +90,7 @@ void	ft_width(t_printf *data)
 {
     if (*data->str == '*' && data->precision == 0)
     {
+        //data->star = 1;
         data->width = va_arg(data->args, int);
         if (data->width < 0)
         {
@@ -100,6 +102,7 @@ void	ft_width(t_printf *data)
     }
     else if (*data->str == '*' && data->precision == 1)
     {
+        //data->star = 1;
         data->width_prec = va_arg(data->args, int);
         if (data->width_prec < 0)
         {
