@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 19:11:11 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/10 19:34:45 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/14 13:34:24 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 void	ft_print_zeros(int x, int length, t_printf *data)
 {
-	if (x < 0 && data->precision == 1 && data->width_prec <= 0 &&
-	data->zero == 1 && data->minus == 1 && data->flags2 != -1 &&
+	if (x < 0 && data->width_prec <= 0 && data->zero == 1 &&
 	data->width_prec < data->width && x != -2147483648) 
 	{
 		data->counter += write(1, "-", 1);
@@ -58,7 +57,11 @@ void	ft_print_prec_width(int x, t_printf *data)
 {
 	int length;
 
-	length = data->width - data->ar_len;
+	if (data->ar_len == data->width_prec && data->width > data->ar_len &&
+	data->flags2 == 1)
+		length = 0;
+	else
+		length = data->width - data->ar_len;
 	if (data->width_prec > data->ar_len)
 		length = data->width - data->width_prec;
 	if (data->flags2 == 1 && data->width_prec > data->ar_len)

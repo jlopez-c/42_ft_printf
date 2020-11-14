@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:41:04 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/10 19:34:42 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/14 11:40:09 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,18 @@ void ft_take_precision(t_printf *data)
 
 void	ft_normal_and_width_precision(int x, int length, t_printf *data)
 {
-	while (length > 0)
-	{
-		data->counter += write(1, " ", 1);
-		length--;
-	}
+
+	//ft_state_flags(data);
+	//printf("ENTRA AQUIIII__________");
+	//if (data->ar_len == data->width_prec && data->width_prec > 0 && data->width > 0)
+	//	length = 0;
+	//{
+		while (length > 0)
+		{
+			data->counter += write(1, " ", 1);
+			length--;
+		}
+	//}
 	length = 0;
 	if (data->flags2 == 1)
 	{

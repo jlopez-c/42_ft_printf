@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 18:58:41 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/02 18:51:58 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/14 14:07:06 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,23 @@ void		ft_put_str(t_printf *data, char *str)
 	i = 0;
 	length = data->width - data->ar_len;
 	if (data->width > 0 && data->minus == 1 && data->precision == 0)
+	{
 		ft_print_minus_str(str, i, length, data);
+		//printf("HOLA");
+	}
+		
 	else if (data->width == 0 && data->precision == 1 && data->width_prec >= 0)
+		{
 		ft_print_precision(str, i, data);
-	else if (data->width > 0 && data->precision == 1 && (data->width_prec > 0 || data->width_prec < 0))
+		//printf("HOLA");
+	}
+		
+	else if (data->width >= 0 && data->precision == 1 && (data->width_prec > 0 || data->width_prec < 0))
+			{
 		ft_print_normal_and_dot_prec(str, i, data);
+		
+	}
+		
 	else if (data->width > 0 && data->minus == 0 && data->width_prec == 0)
 		ft_print_width_str(str, i, length, data);
 	else
