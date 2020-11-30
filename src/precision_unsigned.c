@@ -97,6 +97,5 @@ void	ft_zero_exception_u(unsigned int d, t_printf *data)
 			data->width--;
 		}
 	}
-	if (d == 0 && data->width_prec == 0 && data->minus == 0)
-		return ;
+	ft_init(data);
 }

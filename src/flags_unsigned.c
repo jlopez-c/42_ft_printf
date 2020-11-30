@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 18:50:56 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/10/22 20:29:44 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/30 11:04:46 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ void	ft_print_zeros_u(unsigned int x, int length, t_printf *data)
 				data->counter += write(1, "0", 1);
 				length--;
 			}
-			data->zero = 0;
-			data->precision = 0;
-			data->width = 0;
+		ft_init(data);
 		//ft_putnbr_unsig(x, data);
 		ft_putnbr_unsig_alone(x, data);
 }
@@ -35,9 +33,7 @@ void	ft_print_width_u(unsigned int x, int length, t_printf *data)
 				data->counter += write(1, " ", 1);
 				length--;
 			}
-			data->zero = 0;
-            //data->precision = 0;
-			data->width = 0;
+		ft_init(data);
 		//ft_putnbr_unsig(x, data);
 		ft_putnbr_unsig_alone(x, data);
 }
@@ -50,9 +46,7 @@ void	ft_print_minus_u(unsigned int x, int length, t_printf *data)
 		data->counter += write(1, " ", 1);
 		length--;
 	}
-	data->zero = 0;
-	data->minus = 0;
-	data->width = 0;
+	ft_init(data);
 	//ft_putnbr_unsig(x, data);
 	//ft_putnbr_unsig_alone(x, data);
 }

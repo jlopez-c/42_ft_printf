@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 18:58:41 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/14 14:07:06 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/24 18:23:33 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void		ft_put_str(t_printf *data, char *str)
 	else if (data->width >= 0 && data->precision == 1 && (data->width_prec > 0 || data->width_prec < 0))
 			{
 		ft_print_normal_and_dot_prec(str, i, data);
-		
+		//printf("HOLA");
 	}
 		
 	else if (data->width > 0 && data->minus == 0 && data->width_prec == 0)

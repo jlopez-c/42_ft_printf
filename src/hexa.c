@@ -59,13 +59,13 @@ void	ft_puthexa(unsigned int x, t_printf *data)
 		ft_print_width_hex(x, length, data);
 	else if (data->width >= 0 && data->width_prec > 0)
 		ft_print_prec_width_hex(x, data);
+	else if (x == 0 && data->zero == 1 && data->width == 0 && data->flags2 == -3)
+			data->counter += write(1, "0", 1);
 	else if (x == 0 && (data->precision == 1 || data->zero == 1) && data->width_prec == 0)
-	{
 		ft_zero_exception_hex(x, data);
-		return ;
-	}
 	else
 		ft_puthexa_alone(x, data);
+	ft_init(data);
 }
 
 void	ft_hexa(t_printf *data)

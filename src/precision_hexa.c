@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   precision_hexa.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 11:26:45 by user              #+#    #+#             */
-/*   Updated: 2020/10/25 11:56:46 by user             ###   ########.fr       */
+/*   Updated: 2020/11/30 11:37:47 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,6 @@ void	ft_zero_exception_hex(unsigned int d, t_printf *data)
 			data->width--;
 		}
 	}
-	if (d == 0 && data->width_prec == 0 && data->minus == 0)
-		return ;
+	//if (d == 0 && data->width_prec == 0 && data->minus == 0)
+	//	return ;
 }

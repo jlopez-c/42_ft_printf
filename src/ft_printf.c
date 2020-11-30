@@ -6,7 +6,7 @@
 /*   By: jlopez-c <jlopez-c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:13:25 by jlopez-c          #+#    #+#             */
-/*   Updated: 2020/11/10 17:59:16 by jlopez-c         ###   ########.fr       */
+/*   Updated: 2020/11/30 11:25:45 by jlopez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	ft_width(t_printf *data)
     {
         //data->star = 1;
         data->width = va_arg(data->args, int);
+        data->flags2 = -3;
         if (data->width < 0)
         {
             data->flags2 = -1;

@@ -30,11 +30,11 @@ void	ft_length_unsigned(int u, t_printf *data)
 */
 void	ft_putnbr_unsig_alone(unsigned int n, t_printf *data)
 {
-	//unsigned long int 	max;
-	//unsigned long int 	suma;
+	unsigned long int 	max;
+	unsigned long int 	suma;
 	int					count;
 
-	/*
+	
 	max = 4294967296;
 	if (n < 0)
 	{
@@ -47,7 +47,7 @@ void	ft_putnbr_unsig_alone(unsigned int n, t_printf *data)
 		data->counter += write(1, &suma, 1);
 		return;
 	}
-	*/
+	
 	if (n >= 10)
 	{
 		ft_putnbr_unsig_alone((n / 10), data);
@@ -73,13 +73,13 @@ void	ft_putnbr_unsig(unsigned int n, t_printf *data)
 			ft_print_minus_u(n, length, data);
 		else if (data->width >= 0 && data->width_prec > 0)
 			ft_print_prec_width_u(n, data);
+		else if (n == 0 && data->zero == 1 && data->width == 0 && data->flags2 == -3)
+			data->counter += write(1, "0", 1);
 		else if (n == 0 && (data->precision == 1 || data->zero == 1) && data->width_prec == 0)
-		{
 			ft_zero_exception_u(n, data);
-			return ;
-		}
 		else
 			ft_putnbr_unsig_alone(n, data);
+	ft_init(data);
 }
 
 void	ft_unsigned(t_printf *data)
@@ -94,11 +94,13 @@ void	ft_unsigned(t_printf *data)
 
 	if (u < 0 && data->precision == 1 && data->width_prec == 0)
 		data->ar_len--;
+	/*
 	if (u < 0 && (data->zero == 1 || data->precision == 1) && data->width_prec == 0)
 	{
 		data->counter += write(1, "-", 1);
 		u = -1 * u;
 	}
+	*/
 	if (u < 0 && data->precision == 1 && data->width_prec > 0)
 	{
 		u = -1 * u;
